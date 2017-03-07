@@ -1,487 +1,190 @@
-<html><head>
-    <meta name="baidu-site-verification" content="1jPmULtLtZ">
+<!--注释文字 -->
+<!-- 第1行为代码注释标签，代码注释的作用是帮助程序员标注代码的用途，不会直接呈现在网页上，我们会通过这样的方式让大家来了解一个网页 -->
+<!--<!DOCTYPE> 不是html标签，但它会告诉浏览器html的版本，下面这个写法就是html5啦 -->
+<!DOCTYPE html>
+<html>
+<!-- 文档的头部描述了文档的各种属性和信息，包括文档的标题等、Meta以及css等外部链接的引入-->
+<head lang="en">
+    <!-- meta标签定义了网页的一些信息，比如charset是编码格式，http-equiv向浏览器传回一些有用的信息，以帮助正确和精确地显示网页内容，
+    viewport，则定义页面的宽度与打开页面的屏幕宽度的关系等,keywords和description则是SEO的关键，大家可以去研究一下大网站的头部信息 -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=9">
-    <title>微信支付 - 中国领先的第三方支付平台 ｜ 微信支付提供安全快捷的支付方式</title>
-    <meta name="keywords" content="微信支付,微信,支付,移动支付,手机支付,微支付,微信支付开通,微信支付接入,微信支付申请,微信支付官网,微信支付商户平台,微信支付接口开发,微信支付接口申请,微信支付客服,微信支付登录">
-    <meta name="description" content="微信支付是腾讯公司的支付业务品牌，微信支付提供公众号支付、APP支付、扫码支付、刷卡支付等支付方式。微信支付结合微信公众账号，全面打通O2O生活消费领域，提供专业的互联网+行业解决方案，微信支付支持微信红包和微信理财通，是移动支付的首选。">
-    <link rel="shortcut icon" href="https://wx.gtimg.com/core/favicon.ico" type="image/x-icon">
-    <style>
-        body,ol,ul,h1,h2,h3,h4,h5,h6,p{margin:0;padding:0;}
-        body{min-width:1200px;font:14px "Helvetica Neue","Hiragino Sans GB","Microsoft YaHei","\9ED1\4F53",Arial,sans-serif;background:#fff;-webkit-text-size-adjust:100%;color:#222;}
-        a{color:#459ae9;text-decoration:none;}
-        a:hover{color:#459ae9;text-decoration:underline;}
-        i,em{font-style:normal;}
-        strong{font-weight:normal;}
-        li{list-style:none;}
-        img{border:0;vertical-align:middle;}
-        table{border-collapse:collapse;border-spacing:0;}
-        .hide{display:none;}
-        .red{color:#ff0000;}
-
-        .login-form label,.cbx,.guide-main-li-ico,.warn,.ico-new,.ico-right{background:url(https://wx.gtimg.com/pay/img/home/base.png?v=20160112) no-repeat;}
-
-        .clr:after{content:".";clear:both;display:block;height:0;visibility:hidden;}
-        .clr{zoom:1;}
-        .hide{display:none;}
-        .vs{margin:0 10px;font-family:arial;color:#ccc;}
-
-        .cbx{width:16px;height:16px;display:inline-block;margin:-3px 6px 0 0;*margin-top:0;vertical-align:middle;cursor:pointer;overflow:hidden;}
-        .cbx{background-position:0 -54px;}
-        .cbx-on{background-position:0 -80px;display:inline-block;}
-
-        .wrap{width:1025px;margin:0 auto;overflow:hidden;zoom:1;}
-        .container{margin:25px auto;}
-        .topbar{height:33px;line-height:33px;color:#999;background:#f6f6f6;border-bottom:1px solid #dcdcdc;font:12px/33px tahoma,arial,"Hiragino Sans GB",\5B8B\4F53,sans-serif;}
-        .topbar a{color:#00c901;}
-
-        .header{position:relative;z-index:99;background-color:#fff;/*border-top:4px solid #44b549;*/border-bottom:1px solid #d9dadc;}
-        .header .wrap{height:60px;position:relative;overflow:visible;z-index:999}
-        .header .logo{float:left;width:232px;overflow:hidden;}
-        .header .logo a{display:block;height:40px;margin-top:12px;text-indent:-999px;background:url(https://wx.gtimg.com/pay/img/common/logo.png?v=20160114) no-repeat}
-        .header .link{float:right;line-height:60px;}
-        .header .link a{color:#222;}
-        .header .link a:hover{color:#459ae9}
-        .header .pole-msg{display:inline-block;*display:inline;position:relative;}
-        .header .pole-msg a.content-us{display:inline-block;width:75px;height:60px;position:relative;z-index:9;}
-        .header .pole-msg a.content-us:hover{color:#222;text-decoration:none;}
-        .header .pole-msg.show-popup a.content-us{background:#fff;border-left:1px solid #e7e7eb;border-right:1px solid #e7e7eb;padding-left:16px;margin:0 -1px 0 -17px;*left:-17px;}
-        .header .popup{display:none;position:absolute;top:59px;left:-97px;border:1px solid #e7e7eb;z-index:8;width:131px;}
-        .header .show-popup .popup{display:block;line-height:26px;padding:14px 20px;background:#fff;}
-        .header .show-popup .popup p{font-size:12px;color:#999}
-        .header .show-popup .popup p.tel{color:#333333;font-size:17px;}
-        .header .show-popup .popup .bor-top{border-top:1px solid #e7e7eb;margin-top:10px;padding-top:10px;}
-        .header .dropdown-arrow{position:absolute;right:6px;top:29px;border-color:#c2c2c2 transparent transparent;border-style:solid dashed dashed;border-width:4px 4px 0;font-size:0;height:0;width:0;line-height:0;}
-        .header .show-popup .dropdown-arrow{-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-o-transform:rotate(180deg);transform:rotate(180deg);-webkit-transition:all .25s ease 0s;-moz-transition:all .25s ease 0s;-o-transition:all .25s ease 0s;transition:all .25s ease 0s;}
-
-        .footer{text-align:center;padding-bottom:20px;color:#999999;font:12px/1.6 tahoma,arial,"Hiragino Sans GB",\5B8B\4F53,sans-serif;}
-        .footer p{margin-bottom:8px;}
-        .footer a{color:#999999;}
-        .footer a:hover{color:#459ae9}
-
-        .banner{height:410px;position:relative;}
-        .banner .wrap-login{position:relative;z-index:2;}
-        .banner .login{float:right;width:314px;margin-top:20px;padding:15px 15px 20px;background:rgba(255,255,255,0.8);position:static;border:1px solid #fff;}
-
-        @media \0screen\,screen\9{
-            .banner .login{background:#fff;filter:alpha(opacity=80);*zoom:1;position:static;}
-            .banner .login .login-in{position:relative;}
-        }
-        .banner .login h2{margin-bottom:5px;font-size:20px;font-weight:400;}
-        .banner .login h2 strong{display:none;}
-        .banner .login a{color:#333}
-        .banner .login a:hover{color:#459ae9}
-        .banner .login .tips-error a,.banner .login .tips-warn a{color:#459ae9}
-        .banner .login .tips-error{line-height:24px;font-size:13px;}
-        .banner .login .tips-warn .warn{float:left;width:16px;height:16px;background-position:-24px 0;margin-top:4px;}
-        .banner .login .tips-warn p{float:right;color:#b29b4a;width:290px;font-size:13px;line-height:24px}
-        .banner .login-form .login-mainly{margin-top:10px;margin-bottom:10px;}
-        .banner .login-form .login-account,.banner .login-form .login-password{height:42px;line-height:42px;padding:3px 0;background:#fff;border-left:1px solid #cecece;border-top:1px solid #cecece;position:relative;padding-left:54px;}
-        .banner .login-form label{width:20px;height:20px;overflow:hidden;text-indent:-999px;position:absolute;left:20px;top:30%}
-        .banner .login-form input{width:100%;padding:11px 0;border:0;box-shadow:0;outline:0;vertical-align:middle;font-family:"Microsoft YaHei";font-size:14px;}
-        .banner .login-form .ico-account{background-position:0 0;}
-        .banner .login-form .ico-password{background-position:0 -26px;}
-        .banner .login-form .login-password{margin-top:10px;}
-        .banner .login-password-on .login-account{border-bottom:none;}
-        .banner .login-verify{margin-bottom:10px;height:38px;}
-        .banner .login-verify input{width:100px;padding:10px;vertical-align:middle;vertical-align:middle;border-left:1px solid #cecece;border-top:1px solid #cecece;}
-        .banner .login-verify input:focus{border-left:1px solid #cecece;border-top:1px solid #cecece;}
-        .banner .login-verify .img-verify{width:100px;height:40px;margin:0 11px;vertical-align:middle;}
-        .banner .login-memory{margin-bottom:20px;overflow:hidden;zoom:1;}
-        .banner .login-memory .memory-account{float:left;}
-        .banner .login-memory .forget-password{float:right;}
-        .banner .login .btn-login{display:inline-block;width:100%;height:45px;line-height:45px;background-color:#00c800;color:#fff;border:1px solid #44b549;text-align:center;font-size:20px;}
-        .banner .login .btn-login:hover{text-decoration:none;background:#2F9833;color:#fff;}
-
-        .guide-main-li-ico{display:inline-block;width:73px;height:57px;}
-        .ico-mp{background-position:2px -159px;}
-        .ico-app{background-position:8px -366px;}
-        .ico-code{background-position:4px -230px;}
-        .ico-shuaka{background-position:8px -294px;}
-
-        /*最新公告*/
-        .cms-notice{margin:5px 0 -7px;position:relative;}
-        .cms-notice h2,.cms-notice ul,.cms-notice p{display:inline-block;line-height:20px;}
-        .cms-notice h2{float:left;background:#595B5B;color:#fff;font-size:14px;padding:0px 4px;}
-        .cms-notice li{float:left;margin-left:18px;width:275px;}
-        .cms-notice a{color:#222}
-        .cms-notice a:hover{color:#459ae9}
-        .cms-notice li span.time{float:left;color:#999;margin-right:5px;}
-        .cms-notice li a{display:inline-block;max-width:205px;_width:205px;height:21px;white-space:nowrap;overflow-x:hidden;text-overflow:ellipsis;}
-        .cms-notice p{float:right;}
-        .cms-notice p a{color:#222;}
-        .cms-notice li .ico-new{position:absolute;display:inline-block;width:17px;height:9px;margin-left:5px;background:url(https://wx.gtimg.com/mch/img/ico-new.png);}
-        .cms-notice .more{position:absolute;top:0;right:0;}
-        .cms-notice .more .ico-right{display:inline-block;width:11px;height:9px;margin:0 0 0 3px;vertical-align:middle;background-position:-4px -135px;}
-
-        /*四大支付方式*/
-        .title{margin-top:45px;}
-        .title h2,.title .line,.title .pay-btn{display:inline-block;}
-        .title h2{font-size:20px;font-weight:normal;color:#333;background:#fff;position:absolute;margin-top:-15px;padding-right:10px;}
-        .title .pay-btn{position:absolute;right:0;margin-top:-14px;background:#fff;padding-left:5px;}
-        .title .pay-btn a{display:block;border:1px solid #3e3a39;padding:2px 5px 2px 17px;color:#333333;}
-        .title .pay-btn a:hover{text-decoration:none}
-        .through{height:326px;margin-top:20px;padding-bottom:35px;border-bottom:1px dotted #ccc;background:url(https://wx.gtimg.com/pay/img/home/qrcode.png?v=20150602) center top no-repeat;}
-        .through li{font-size:16px;margin-top:58px;margin-left:68px;position:absolute;}
-        .through li.l02{margin-top:143px;}
-        .through li.l03{margin-top:228px;}
-        .through li.l04{margin-left:748px;}
-        .through li.l05{margin-top:143px;margin-left:755px;}
-        .through li.l06{margin-top:228px;margin-left:755px;}
-
-        .guide-main{margin-top:37px;margin-bottom:5px;}
-        .guide-main li{width:240px;height:266px;background-color:#FFFFFF;float:left;margin-right:21px;_margin-right:20px;text-align:center}
-        .guide-main .guide-main-li-4{margin-right:0;}
-        .guide-main li a{width:239px;height:266px;display:block;position:relative;border:1px solid #e5e5e5;}
-        .guide-main li .title{display:block;color:#000000;font-size:16px;line-height:1;margin-top:25px;font-weight:normal}
-        .guide-main li .info{display:block;color:#999999;font-size:12px;line-height:1;margin-top:14px;}
-        .guide-main li .info .strong{font-weight:bold;}
-        .guide-main-li-ico{margin-top:72px;-webkit-transition:margin-top 0.2s linear;-moz-transition:margin-top 0.2s linear;-ms-transition:margin-top 0.2s linear;-o-transition:margin-top 0.2s linear;transition:margin-top 0.2s linear;}
-        .guide-main li .btngreen{display:none;margin:20px auto 0;width:191px;height:35px;line-height:35px;background-color:#00C800;font-size:14px;color:#FFFFFF;border-bottom:1px solid #00A000;}
-        .guide-main li .btngray{background-color:#E6E6E6!important;color:#666666!important;border-bottom:1px solid #CCCCCC;}
-        .guide-main-li-3 .tips{display:none;font-size:12px;color:#FF9900;line-height:1;}
-        .guide-main-li-3 .tips .ico-info-orange{vertical-align:-3px;*vertical-align:1px;margin-right:5px;margin-top:12px;}
-        .guide-main li a:hover{border:1px solid #00c800;text-decoration:none}
-        .guide-main li a:hover .btngreen{display:block;}
-        .guide-main li a:hover .tips{display:block;}
-        .guide-main li a:hover .guide-main-li-ico{margin-top:45px;-webkit-transition:margin-top 0.2s linear;-moz-transition:margin-top 0.2s linear;-ms-transition:margin-top 0.2s linear;-o-transition:margin-top 0.2s linear;transition:margin-top 0.2s linear;}
-        .guide-link{padding-top:120px;padding-bottom:58px;position:relative;height:24px;}
-        .guide-link-a{color:#00C800;font-size:18px;height:24px;width:162px;}
-        .guide-link-a .ico-arrow-right{vertical-align:-2px;*vertical-align:3px;margin-left:8px;cursor:pointer;}
-        .guide-link-code{display:none;position:absolute;border:1px solid #C9C9C9;padding:6px;background-color:#FFFFFF;width:105px;height:105px;top:67px;left:50%;margin-left:90px;}
-        .show-code .guide-link-code{display:block;}
-        .show-code .ico-arrow-right{-webkit-transform:scale(-1, 1);-moz-transform:scale(-1, 1);-ms-transform:scale(-1, 1);-o-transform:scale(-1, 1);transform:scale(-1, 1);}
-
-        /*图片轮播*/
-        .cms-banner{position:absolute;top:0;width:100%;height:410px;overflow:hidden; left:0}
-        .cms-banner a{display:block;width:100%;height:410px;text-indent:-9999px;}
-        .cms-banner ul li{position:absolute;top:0;width:100%;height:410px;background-position:center;background-repeat:no-repeat;}
-        .cms-banner ol{position:absolute;z-index:9;bottom:0px;display:table;left:50%;margin-left:-73px;padding:16px 16px 16px 0;}
-        .cms-banner ol li{float:left;width:10px;height:10px;margin-left:16px;text-indent:-9999px;background:#fff;border-radius:5px;overflow:hidden;}
-        .cms-banner ol li.active{background:#44B549;}
-    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="" >
+    <meta name="description" content="">
+    <!-- 网页的title标签会在浏览器中的标题栏上显示（包括微信浏览器）用于告诉用户和搜索引擎这个网页的主要内容是什么。
+    搜索引擎可以通过网页标题，迅速的判断出网页的主题，所以它也是SEO几乎最为关键的信息。
+    每个网页的内容都是不同的，每个网页都应该有一个独一无二的title。-->
+    <title>HackWeek官方网站--html基础知识</title>
+    <!--link 标签通常会引入css或者icon小图标，css样式引入有三种写法，这是其中之一 -->
+    <link href="" rel="stylesheet">
+    <!--script 标签会引入javasript文件，通常情况下，这个会放在网站的尾部 -->
+    <script src=""></script>
+    <!--style标签是网站的css样式，css样式引入有三种写法，这是其中之一 -->
+    <style></style>
 </head>
-<body class="index" onclick="pgvWatchClick();"><svg aria-hidden="true" style="position: absolute; width: 0px; height: 0px; overflow: hidden;"><symbol id="icon-redo" viewBox="0 0 1024 1024"><path d="M0 576c0 152.928 67.04 290.176 173.344 384l84.672-96c-79.712-70.368-130.016-173.312-130.016-288 0-212.064 171.936-384 384-384 106.048 0 202.048 42.976 271.52 112.48l-143.52 143.52 384 0 0-384-149.984 149.984c-92.64-92.672-220.64-149.984-362.016-149.984-282.784 0-512 229.216-512 512z"></path></symbol><symbol id="icon-wxbsousuotuiguang" viewBox="0 0 1024 1024"><path d="M937.798221 769.855766 714.895525 546.869159c23.821545-45.681412 37.589107-97.495498 37.589107-152.564721 0-182.559872-148.560524-331.078441-331.079464-331.078441-182.623317 0-331.098907 148.517545-331.098907 331.078441 0 182.559872 148.47559 331.078441 331.098907 331.078441 60.575634 0 117.27089-16.647145 166.206416-45.221948L807.552831 900.100132c17.938558 17.939581 41.551348 26.867928 65.12423 26.867928s47.182602-8.928347 65.123206-26.867928c17.396205-17.396205 27.033703-40.550555 27.033703-65.164139C964.831924 810.321386 955.194426 787.16806 937.798221 769.855766M133.027248 394.304438c0-158.989037 129.34795-288.358477 288.378943-288.358477 158.948105 0 288.3595 129.36944 288.3595 288.358477 0 99.206466-50.437739 186.899714-126.950344 238.795665-1.044796 0.416486-1.876744 1.252527-2.877537 1.835811-45.515636 30.03813-99.999528 47.727001-158.530596 47.727001C262.375198 682.662915 133.027248 553.336454 133.027248 394.304438M907.594315 869.896226c-19.273972 19.191084-50.562583 19.191084-69.836555 0L623.6995 655.797034c26.157753-20.274766 49.186236-44.305065 68.292386-71.421656l215.601406 215.683271c9.344832 9.262968 14.518668 21.694091 14.518668 34.877345S916.939147 860.551394 907.594315 869.896226"></path><path d="M215.169059 387.79007c0 0 42.156122-211.011878 234.186693-224.946238C449.355753 162.843832 185.944458 131.555222 215.169059 387.79007"></path></symbol><symbol id="icon-close" viewBox="0 0 1024 1024"><path d="M546.942134 511.818772l327.456957-326.128977c9.617355-9.577423 9.648071-25.135361 0.070648-34.751692-9.577423-9.617355-25.137409-9.647048-34.750668-0.070648L512.119795 477.137729 184.520518 150.868479c-9.616331-9.577423-25.176316-9.545683-34.751692 0.070648-9.577423 9.616331-9.545683 25.174268 0.070648 34.751692l327.457981 326.127953-327.457981 326.128978c-9.616331 9.577423-9.647048 25.135361-0.070648 34.751692a24.496456 24.496456 0 0 0 17.41117 7.231702 24.500552 24.500552 0 0 0 17.340522-7.162078L512.119795 546.499816l327.599276 326.26925a24.492361 24.492361 0 0 0 17.340522 7.162078 24.5026 24.5026 0 0 0 17.41117-7.231702c9.577423-9.617355 9.545683-25.175292-0.070648-34.751692L546.942134 511.818772z" fill="#353535"></path></symbol><symbol id="icon-refresh" viewBox="0 0 1025 1024"><path d="M1000.803878 388.49588c-10.161038-8.99688-25.690307-8.051834-34.688211 2.109204l-61.519126 69.484954c-4.493833-44.37519-15.419713-87.479738-32.656822-128.641976-22.511143-53.755003-54.789128-101.965668-95.933959-143.294799C691.231126 103.00184 577.673029 56.107892 456.249444 56.107892c-60.834147 0-119.860112 11.920073-175.440703 35.42848-53.672069 22.700562-101.869423 55.194586-143.25282 96.579007-41.383397 41.383397-73.877422 89.580751-96.579007 143.25282-23.508407 55.580591-35.42848 114.60758-35.42848 175.440703 0 60.834147 11.920073 119.860112 35.42848 175.440703 22.700562 53.672069 55.194586 101.869423 96.579007 143.25282s89.580751 73.877422 143.25282 96.579007c55.580591 23.508407 114.60758 35.42848 175.440703 35.42848 54.671381 0 108.114099-9.688003 158.841474-28.794727 49.002128-18.457581 94.109396-45.155391 134.065497-79.351113 10.310525-8.824868 11.515638-24.337754 2.691795-34.648279-8.824868-10.310525-24.337754-11.515638-34.648279-2.691795-35.605612 30.473899-75.789016 54.259779-119.433151 70.699282-45.169725 17.012879-92.78244 25.640136-141.517334 25.640136-54.220871 0-106.805574-10.613595-156.296095-31.546931-47.813397-20.222759-90.760267-49.180284-127.645736-86.066777-36.885469-36.885469-65.842994-79.832339-86.066777-127.645736-20.932312-49.490521-31.545907-102.075224-31.545907-156.296095s10.613595-106.805574 31.545907-156.295071c20.223783-47.813397 49.180284-90.760267 86.066777-127.645736 36.886493-36.885469 79.832339-65.842994 127.645736-86.066777 49.489497-20.932312 102.075224-31.545907 156.296095-31.545907 108.254372 0 209.444958 41.755067 284.926808 117.573776 67.949126 68.251172 108.312733 157.16435 115.471739 253.034828l-101.959525-72.125554c-11.078439-7.836818-26.414194-5.209529-34.252036 5.869935-7.837842 11.079463-5.210552 26.415217 5.868911 34.25306l140.842594 99.631209c4.291103 3.03582 9.251828 4.512263 14.179788 4.512263 6.824196 0 13.58491-2.834115 18.410482-8.284256l103.1759-116.535556C1011.909962 413.02203 1010.964916 397.491737 1000.803878 388.49588z"></path></symbol><symbol id="kdy-icon-error" viewBox="0 0 1025 1024"><path d="M982.668821 313.74918c-25.810101-60.752236-62.714-115.373446-109.685763-162.346233-46.972787-46.971763-101.593997-83.875662-162.346233-109.685763C647.666853 14.966132 580.925912 1.401699 512.268258 1.401699S376.868639 14.966132 313.898667 41.717184c-60.752236 25.810101-115.373446 62.714-162.346233 109.685763-46.971763 46.972787-83.875662 101.593997-109.685763 162.346233C15.115619 376.719151 1.551186 443.460092 1.551186 512.118771S15.115619 647.517366 41.866671 710.487337c25.810101 60.75326 62.714 115.37447 109.685763 162.346233 46.971763 46.972787 101.592974 83.876686 162.346233 109.685763 62.969971 26.752076 129.710912 40.316509 198.369591 40.316509s135.398595-13.564433 198.368567-40.316509c60.75326-25.809077 115.37447-62.712976 162.346233-109.685763 46.972787-46.971763 83.876686-101.592974 109.685763-162.346233 26.752076-62.969971 40.316509-129.710912 40.316509-198.368567S1009.419873 376.719151 982.668821 313.74918zM937.435615 691.271058c-23.333323 54.923257-56.71096 104.317532-99.204249 146.811845-42.494313 42.493289-91.888588 75.870926-146.811845 99.204249-56.8584 24.155503-117.133505 36.403219-179.152287 36.403219-62.018782 0-122.293887-12.247716-179.152287-36.403219-54.923257-23.333323-104.317532-56.71096-146.810821-99.204249-42.493289-42.494313-75.870926-91.888588-99.204249-146.811845C62.944374 634.412658 50.697682 574.136529 50.697682 512.118771c0-62.018782 12.247716-122.293887 36.403219-179.152287 23.333323-54.923257 56.709936-104.317532 99.204249-146.810821s91.888588-75.870926 146.810821-99.204249c56.8584-24.155503 117.133505-36.403219 179.152287-36.403219 62.017758 0 122.292863 12.247716 179.152287 36.403219 54.923257 23.333323 104.317532 56.709936 146.810821 99.204249 42.494313 42.493289 75.870926 91.888588 99.205273 146.810821 24.155503 56.8584 36.403219 117.134529 36.403219 179.152287S961.591118 634.412658 937.435615 691.271058z"></path><path d="M704.62457 319.769626c-9.997216-9.996192-26.203273-9.996192-36.199466 0L512.382933 475.810773 356.341786 319.769626c-9.996192-9.996192-26.204297-9.996192-36.199466 0-9.996192 9.996192-9.996192 26.203273 0 36.199466l156.041147 156.041147L320.14232 668.05241c-9.996192 9.997216-9.996192 26.204297 0 36.199466 4.997584 4.998608 11.549426 7.496888 18.100245 7.496888s13.101637-2.49828 18.100245-7.496888l156.041147-156.041147L668.424081 704.251876c4.998608 4.998608 11.548403 7.496888 18.100245 7.496888s13.101637-2.49828 18.100245-7.496888c9.996192-9.996192 9.996192-26.203273 0-36.199466L548.583423 512.011263l156.041147-156.041147C714.620762 345.973923 714.620762 329.765818 704.62457 319.769626z"></path></symbol><symbol id="icon-prompt" viewBox="0 0 1025 1024"><path d="M637.349161 308.770026"></path><path d="M512.53242 1022.476459c-68.658678 0-135.399619-13.564433-198.369591-40.316509-60.752236-25.809077-115.373446-62.712976-162.346233-109.685763-46.971763-46.971763-83.875662-101.592974-109.685763-162.346233-26.751052-62.969971-40.315485-129.710912-40.315485-198.368567s13.564433-135.399619 40.315485-198.369591c25.810101-60.752236 62.714-115.373446 109.685763-162.346233 46.972787-46.971763 101.593997-83.875662 162.346233-109.685763 62.969971-26.751052 129.710912-40.315485 198.369591-40.315485s135.398595 13.564433 198.368567 40.315485c60.752236 25.810101 115.37447 62.714 162.346233 109.685763 46.972787 46.972787 83.876686 101.593997 109.686787 162.346233 26.752076 62.969971 40.316509 129.710912 40.316509 198.369591s-13.564433 135.398595-40.316509 198.368567c-25.810101 60.75326-62.712976 115.37447-109.685763 162.346233-46.971763 46.972787-101.593997 83.876686-162.346233 109.685763C647.93204 1008.912026 581.190075 1022.476459 512.53242 1022.476459zM512.53242 50.188811c-62.018782 0-122.293887 12.247716-179.152287 36.403219-54.923257 23.333323-104.317532 56.709936-146.810821 99.204249s-75.870926 91.888588-99.204249 146.810821c-24.155503 56.8584-36.403219 117.133505-36.403219 179.152287 0 62.017758 12.247716 122.292863 36.403219 179.152287 23.333323 54.923257 56.709936 104.317532 99.204249 146.811845 42.493289 42.493289 91.888588 75.870926 146.810821 99.204249 56.8584 24.155503 117.133505 36.403219 179.152287 36.403219 62.017758 0 122.293887-12.247716 179.153311-36.403219 54.923257-23.333323 104.317532-56.71096 146.810821-99.204249 42.494313-42.494313 75.87195-91.888588 99.205273-146.811845 24.155503-56.8584 36.403219-117.133505 36.403219-179.152287s-12.247716-122.293887-36.404243-179.152287c-23.333323-54.923257-56.71096-104.317532-99.204249-146.810821-42.494313-42.493289-91.888588-75.870926-146.811845-99.204249C634.825284 62.436527 574.550178 50.188811 512.53242 50.188811z"></path><path d="M512.442318 767.198298c-14.136785 0-25.597133-11.460348-25.597133-25.597133l0-332.127922c0-14.136785 11.460348-25.597133 25.597133-25.597133s25.597133 11.460348 25.597133 25.597133l0 332.127922C538.039452 755.737949 526.578079 767.198298 512.442318 767.198298z"></path><path d="M511.381573 319.924232c-17.522773 0-31.778329-14.255555-31.778329-31.778329 0-17.52175 14.255555-31.777305 31.778329-31.777305 17.52175 0 31.777305 14.255555 31.777305 31.777305C543.158878 305.668677 528.903323 319.924232 511.381573 319.924232z"></path></symbol><symbol id="kdy-icon-success" viewBox="0 0 1025 1024"><path d="M511.679524 1023.15939c-68.658678 0-135.399619-13.564433-198.369591-40.316509-60.752236-25.809077-115.373446-62.712976-162.346233-109.685763-46.971763-46.971763-83.875662-101.592974-109.685763-162.346233-26.751052-62.969971-40.315485-129.710912-40.315485-198.368567s13.564433-135.399619 40.315485-198.369591c25.810101-60.752236 62.714-115.373446 109.685763-162.346233 46.972787-46.971763 101.593997-83.875662 162.346233-109.685763C376.279905 15.28968 443.020846 1.725247 511.679524 1.725247S647.078119 15.28968 710.048091 42.040731c60.752236 25.810101 115.37447 62.714 162.346233 109.685763 46.972787 46.972787 83.876686 101.593997 109.686787 162.346233 26.752076 62.969971 40.316509 129.710912 40.316509 198.369591s-13.564433 135.398595-40.316509 198.368567c-25.810101 60.75326-62.712976 115.37447-109.685763 162.346233-46.971763 46.972787-101.593997 83.876686-162.346233 109.685763C647.079143 1009.594957 580.337178 1023.15939 511.679524 1023.15939zM511.679524 50.871742c-62.018782 0-122.293887 12.247716-179.152287 36.403219-54.923257 23.333323-104.317532 56.709936-146.810821 99.204249s-75.870926 91.888588-99.204249 146.810821c-24.155503 56.8584-36.403219 117.133505-36.403219 179.152287 0 62.017758 12.247716 122.292863 36.403219 179.152287 23.333323 54.923257 56.709936 104.317532 99.204249 146.811845 42.493289 42.493289 91.888588 75.870926 146.810821 99.204249 56.8584 24.155503 117.133505 36.403219 179.152287 36.403219 62.017758 0 122.293887-12.247716 179.153311-36.403219 54.923257-23.333323 104.317532-56.71096 146.810821-99.204249 42.494313-42.494313 75.87195-91.888588 99.205273-146.811845 24.155503-56.8584 36.403219-117.133505 36.403219-179.152287s-12.247716-122.293887-36.404243-179.152287c-23.333323-54.923257-56.71096-104.317532-99.204249-146.810821-42.494313-42.493289-91.888588-75.870926-146.811845-99.204249C633.972387 63.119459 573.697282 50.871742 511.679524 50.871742z"></path><path d="M451.780185 689.848881c-6.223175 0-12.452493-2.255619-17.365095-6.794503L253.195578 515.658342c-10.384245-9.592782-11.027245-25.787576-1.434463-36.171821 9.592782-10.386293 25.786552-11.026221 36.171821-1.434463l163.146912 150.703633 289.753404-289.754428c9.997216-9.996192 26.203273-9.996192 36.199466 0 9.996192 9.996192 9.996192 26.203273 0 36.199466L469.883501 682.351993C464.896156 687.339338 458.342266 689.848881 451.780185 689.848881z"></path></symbol></svg>
-
-<!-- 头部[[ -->
-<!-- 头部 [[ -->
-<script>var _speedMark=Date.now()</script>
-<!--小于ie7 跳转到错误页面 -->
-<!--[if lt IE 7]>
-<script>
-    window.location.href='https://pay.weixin.qq.com/public/error/browser_tips';
-</script>
-<![endif]-->
-<div class="topbar">
-    <div class="wrap">
-        <span onclick="pgvSendClick({hottag:'PAY.HOME.NAVI.CHINA_BUSINESS'});">境内业务</span>
-        <i class="vs">|</i>
-        <a onclick="pgvSendClick({hottag:'PAY.HOME.NAVI.INTERNATIONAL_BUSINESS'});" href="https://pay.weixin.qq.com/index.php/public/wechatpay" target="_blank">International business</a>
-    </div>
+<!-- 在<body>和</body>标签之间的内容是网页的主要内容，在网页上要展示出来的页面内容一定要放在body标签中。-->
+<body>
+<!-- 标签标题一共有6个，h1、h2、h3、h4、h5、h6分别为一级标题、二级标题、三级标题、四级标题、五级标题、六级标题。并且依据重要性递减。-->
+<!-- <h1>为标题标签，且是最高的等级，字号也最大。因为h1标签在网页中比较重要，所以一般h1标签被用在网站名称或Logo上-->
+<!-- 标题标签的字体系统会默认加粗 -->
+<h1>HackWeek网页开发</h1>
+<!-- h1,h2,h3,h4,h5,h6,字号会逐步减小，下面<h3>就比上面的<h1>标签要小-->
+<h3>为什么要参加HackWeek活动</h3>
+<!--通常会把文章的段落，网页的文本内容放到<p>标签中 -->
+<!--通常会把文章的段落，网页的文本内容放到<p>标签中 -->
+<p>HackWeek，让参与者在一周的时间里学习一个对自己工作和生活有切实帮助的技能点。我们致力于以最为有效的学习方式（视频+图文介绍+案例+任务性的实战
+    +随时答疑+能够有监督促学机制+线下分组做出产品+活动后长期辅导）让每个人能够享受技术创造所带来的乐趣。
+    <span>技术是群体创造，欢乐而有趣的社交活动。</span>
+</p>
+<!--<blockquote>的作用是引用别人的文本，这个在微信公众号的标签里面经常有用到 -->
+<blockquote>
+    Everybody in this country should learn how to program a computer，because it teaches you how to think.
+    <!--在需要加回车换行的地方加入<br>，<br>标签作用相当于word文档中的回车。 -->
+    <br>
+    <!--<em>和<strong>标签是为了强调一段话中的关键字时使用，它们的语义是强调。<span>标签是没有语义的，它的作用就是为了设置单独的样式用的。 -->
+    <strong>我们国家的每个人都应该学习一点编程，因为它会教你如何思考。</strong> ---<em>Steve Jobs</em>
+</blockquote>
+<!--在信息展示时，有时会需要加一些用于分隔的横线，也就是分割线，这样会使文章看起来整齐些。微信公众号也经常用到。 -->
+<hr>
+<!--为了让网页逻辑更加清晰，我们可以把一些标签放到div里面，div相当于一个集装箱，把分门别类的货物放到不同的div里面，网页逻辑是不是就更清楚啦 -->
+<div>
+    <!--ul li标签主要是对应着word里面的无序列表 -->
+    <ul>
+        <li>系统指导</li>
+        <li>注重实战</li>
+        <li>持续性进阶</li>
+        <li>贴近实际的案例</li>
+    </ul>
 </div>
-<div class="header">
-    <div class="wrap">
-        <div class="logo"><h1><a href="/index.php/core/account" title="微信支付商户平台">微信支付商户平台</a></h1></div>
-        <div class="link">
-            <a href="https://pay.weixin.qq.com/partner/public/home" target="_blank" onclick="pgvSendClick({hottag:'PAY.HOME.NAVI.SERVICE_PROVIDER'});"><strong class="hide">微信支付</strong>服务商</a>
-            <i class="vs">|</i>
-            <a href="https://pay.weixin.qq.com/wxzf_guide/index.shtml" target="_blank" onclick="pgvSendClick({hottag:'PAY.HOME.NAVI.WXZF_GUIDE'});"><strong class="hide">微信支付</strong>接入指引</a>
-            <i class="vs">|</i>
-            <a href="https://pay.weixin.qq.com/wiki/doc/api/index.php" target="_blank" onclick="pgvSendClick({hottag:'PAY.HOME.NAVI.API_DOC'});"><strong class="hide">微信支付</strong>开发文档</a>
-            <i class="vs">|</i>
-            <div class="pole-msg showPopUpJS">
-                <a class="content-us" href="javascript:;" onclick="pgvSendClick({hottag:'PAY.HOME.NAVI.HELP_CENTER'});">帮助中心<span class="dropdown-arrow"></span></a>
-                <div class="popup">
-                    <div class="inner">
-                        <ul>
-                            <li>
-                                <p class="tel">客服：95017</p>
-                                <p>周一到周五 09:00-18:00</p>
-                            </li>
-                            <li class="bor-top">
-                                <a href="http://kf.qq.com/product/wechatpaymentmerchant.html" target="_blank" onclick="pgvSendClick({hottag:'PAY.HOME.NAVI.QQ_KEFU'});">自助服务专区</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<h3>为什么要学网页开发</h3>
+<div>
+    <!--ol li标签主要是对应着word里面的有序列表 -->
+    <ol>
+        <li>职场人士必学基础技能</li>
+        <li>技术爱好者入门首选</li>
+        <li>UI、UX设计师基础技能</li>
+        <li>产品经理/创业者需掌握入门技术</li>
+    </ol>
 </div>
-
-<script src="https://wx.gtimg.com/third/jquery/jquery-1.7.min.js"></script>
-<script type="text/javascript">if(typeof $jqueryUi == "undefined"){document.write('<script type="text/javascript" src="https://wx.gtimg.com/third/jquery/jquery-ui.js"></script"+">');}</script><script type="text/javascript" src="https://wx.gtimg.com/third/jquery/jquery-ui.js"></script"+">
-<script>window["MCH.common.time"]=[new Date()]</script>
-<script id="legos:22195" ver="22195:20140901:20160908155731" name="MCH.common" src="https://wx.gtimg.com/mch/js/ver/2014/09/mch.common.20140901.js?t=20160908155731" charset="utf-8"></script><div class="mask-layer hide" id="header-masker"></div><!--[if !IE]>|xGv00|c95d265e97fcc54b235954b5b4a712f5<![endif]-->
-<script>window["MCH.header.time"]=[new Date()]</script>
-<script id="legos:22118" ver="22118:20140422:20160620111341" name="MCH.header" src="https://wx.gtimg.com/mch/js/ver/2014/04/mch.header.20140422.js?t=20160620111341" charset="utf-8"></script><!--[if !IE]>|xGv00|da289bab2d090281ed2476547ba6b944<![endif]-->
-<!-- 头部 ]] --><!--[if !IE]>|xGv00|73bbdddabec4f094fcae10c51db0f883<![endif]-->
-<!-- 头部 ]] -->
-
-<!-- 登录[[ -->
-<div class="banner">
-
-    <div class="cms-banner cms-area" id="cmspic_1000" home="true"><ul><li style="background-image: url(&quot;https://shp.qpic.cn/mmpay/oU5xbewRJutFViafoibhr5UHrDC2mbMGDZyLEY3icMbqS2o3BoicgX18HtuYicRR0fOJM/0&quot;); opacity: 1; z-index: 1;"><a target="_blank" href="https://pay.weixin.qq.com/public/qrcode_pay">banner</a></li><li style="background-image: url(&quot;https://shp.qpic.cn/mmpay/oU5xbewRJuvfQibNQiaWz5VUDocbQSYYe3hM60YBT0t6AWkzDjcIFFgQxckUUn64nQ/0&quot;); opacity: 0; z-index: 0;"><a target="_blank" href="http://v.qq.com/x/cover/mv3e2ecbtloy44o.html?vid=u01960zjo7r">banner</a></li><li style="background-image: url(&quot;https://shp.qpic.cn/mmpay/oU5xbewRJuv0wHAj5rxw34SXVgoycsicBB7zpopLBoGzl6S7EicZPsOPsyfj90NG2I/0&quot;); opacity: 0; z-index: 0;"><a target="_blank" href="http://v.qq.com/x/cover/mv3e2ecbtloy44o.html?vid=u01960zjo7r">banner</a></li><li style="background-image: url(&quot;https://shp.qpic.cn/mmpay/oU5xbewRJuupH9MJ5hbqw5sMmlyyn0UnUicF2UeHLKEkCO11MnS1DoXXicX3gOwfuK/0&quot;); opacity: 0; z-index: 0;"><a target="_blank" href="http://v.qq.com/x/cover/mv3e2ecbtloy44o.html?vid=u01960zjo7r">banner</a></li><li style="background-image: url(&quot;https://shp.qpic.cn/mmpay/oU5xbewRJuuZ81jvVm2RMN2C3hBE2oKW6UjJKs99mAZRxGOdCFYkyMU8NxHLDlLQ/0&quot;); opacity: 0; z-index: 0;"><a target="_blank" href="http://v.qq.com/x/cover/mv3e2ecbtloy44o.html?vid=u01960zjo7r">banner</a></li></ul><ol class="dots" style="opacity: 1; z-index: 1;"><li class="dot active">1</li><li class="dot">2</li><li class="dot">3</li><li class="dot">4</li><li class="dot">5</li></ol></div>
-    <div class="wrap">
-        <div class="wrap-login">
-            <div class="login">
-                <div class="login-in">
-                    <h2><span class="hide">微信支付</span>商户登录</h2>
-                    <div class="tips-warn clr hide" id="IDBrowserSafariTips"><i class="warn"></i><p>由于Safari浏览器安全策略，如密码输入出现异常，请根据指引修改Safari浏览器配置，
-                        <a href="/help_guide/login_guide.shtml" target="_blank">查看指引</a></p></div>
-                    <div class="tips-warn clr hide" id="IDBrowserMacChromeTips"><i class="warn"></i><p>
-                        如密码输入出现异常，请根据指引修改浏览器配置，
-                        <a href="https://pay.weixin.qq.com/index.php/public/cms/content_detail?platformType=0&amp;lang=zh&amp;id=29000 " target="_blank">查看指引。</a></p></div>
-
-
-                    <div class="tips-error"><i class="ico-error"></i><p id="errmsg" style="color:red"></p></div>
-
-                    <!-- 交互说明
-                         1. 给样式"login-form"添加样式"login-account-on",显示账号获焦效果
-                         2. 给样式"login-form"添加样式"login-password-on",显示密码获焦效果
-                    -->
-                    <form class="login-form login-password-on" action="/index.php/core/home/d_login_transition" method="post">
-                        <div class="login-mainly">
-                            <div class="login-account"><label class="ico-account" for="" title="登录帐号">登录帐号</label><input type="text" name="username" placeholder="登录帐号" id="idUserName"></div>
-                            <div class="login-password" id="mmpayPwdEdit"><label class="ico-password" for="" title="登录密码">登录密码</label><input type="password" name="password" placeholder="登录密码" id="idPassword"></div>
-                        </div>
-
-                        <input type="hidden" name="return_url" value="/index.php">
-                        <input type="hidden" name="login_type" value="0">
-                        <input id="token" type="hidden" name="ecc_csrf_token" value="c22aa98f4699315b3526f1958dfbd565">
-
-                        <div class="login-verify "><input type="text" name="checkword_in" maxlength="4" placeholder="验证码"><input type="hidden" name="need_check" value="1"><img class="img-verify change-verify" src="http://captcha.qq.com/getimage?aid=755049101&amp;rd=0.6591283642223154" style="height:40px;width:100px;"><a class="change-verify" href="#">换一张</a></div>
-                    </form>
-                    <div class="login-memory"><label id="memory_username_label" class="memory-account" for=""><i class="cbx" id="memory_username"></i>记住帐号</label><a class="forget-password" href="/index.php/public/reset_pass" onclick="pgvSendClick({hottag:'PAY.HOME.LOGIN_BOX.FORGET_PASSWORD'});">忘记密码？</a></div>
-                    <a class="btn-login" href="javascript:void(0);" id="do_login" onclick="pgvSendClick({hottag:'PAY.HOME.LOGIN_BOX.LOGIN_BUTTON'});">登录</a>
-                </div>
-            </div>
-            <input id="seed" type="hidden" name="time_seed" value="31343838383035393837">
-        </div>
-    </div>
+<h3>线上交流安排</h3>
+<div>
+    <!--<table>…</table>：整个表格以<table>标记开始、</table>标记结束。 -->
+    <table>
+        <!--<tbody>…</tbody>标签可以控制表格分行下载，从而提高下载速度，你可以偷懒不写(这不大规范)，但浏览器会自动给你不写 -->
+        <tbody>
+        <!--<tr>…</tr>：表格的一行，所以有几对tr 表格就有几行。 -->
+        <tr>
+            <!--<th>…</th>：表格的头部的一个单元格，表格表头。 -->
+            <th>日期</th>
+            <th>学习内容</th>
+            <th>固定交流时间</th>
+        </tr>
+        <tr>
+            <!--<td>…</td>：表格的一个单元格，一行中包含几对<td>...</td>，说明一行中就有几列。 -->
+            <td>周一</td>
+            <td>开发环境的搭建</td>
+            <td>20:30-21:30</td>
+        </tr>
+        <tr>
+            <td>周二</td>
+            <td>HTML基础知识</td>
+            <td>20:30-21:30</td>
+        </tr>
+        <tr>
+            <td>周三</td>
+            <td>CSS基础知识</td>
+            <td>20:30-21:30</td>
+        </tr>
+        <tr>
+            <td>周四</td>
+            <td>学习并理解Bootstrap</td>
+            <td>20:30-21:30</td>
+        </tr>
+        <tr>
+            <td>周五</td>
+            <td>引入开源项目</td>
+            <td>20:30-21:30</td>
+        </tr>
+        <tr>
+            <td>周六</td>
+            <td>网页初步设计</td>
+            <td>20:30-21:30</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<div>
+    <!--使用<a>标签可实现超链接，它在网页制作中可以说是无处不在，只要有链接的地方，就会有这个标签。
+    title属性的作用，鼠标滑过链接文字时会显示这个属性的文本内容。这个属性在实际网页开发中作用很大，主要方便搜索引擎了解链接地址的内容,有利于SEO
+    target="_blank"表示在浏览器新的窗口打开该链接  -->
+    <a href="http://www.huodongxing.com/event/1354743848600" title="HackWeek活动报名" target="_blank">HackWeek零基础一周学会网站开发与网站建设</a>
+    <a href="http://hackweek.huodongxing.com/">立即报名</a>
+</div>
+<br>
+<div>
+    <!--使用<img>标签来插入图片，图像可以是GIF，PNG，JPEG格式的图像文件。
+    src：标识图像的位置；
+    alt：指定图像的描述性文本，当图像不可见时（下载不成功时），可看到该属性指定的文本；
+    title：提供在图像可见时对图像的描述(鼠标滑过图片时显示的文本)；
+    -->
+    <img src="http://hackweek.oss-cn-shanghai.aliyuncs.com/t/img/hackweekbanner.jpg" title="HackWeek网页开发"
+         alt="HackWeek图片" width="300px"  >
 
 </div>
-<!-- 登录 ]] -->
-
-<!-- 内容[[ -->
-<div class="container">
-    <div class="wrap">
-        <!-- 最新公告[[ -->
-        <div class="cms-notice cms-area clr" id="cmsanm_6000" home="true" link-list-id="6200"><h2>最新公告</h2><ul><li><span class="time">[03.01]</span><a target="_blank" href="/index.php/public/cms/content_detail?lang=zh&amp;id=30207" title="【维护通知】3月3日微信支付退款业务升级维护">【维护通知】3月3日微信支付退款业务升级维护</a><i class="ico-new"></i></li><li><span class="time">[02.10]</span><a target="_blank" href="/index.php/public/cms/content_detail?lang=zh&amp;id=41201" title="微信支付企业付款业务调整公告">微信支付企业付款业务调整公告</a></li><li><span class="time">[11.30]</span><a target="_blank" href="/index.php/public/cms/content_detail?lang=zh&amp;id=30001" title="《商户平台使用手册》正式上线">《商户平台使用手册》正式上线</a></li></ul><p class="more"><a href="/public/cms/content_list?lang=zh&amp;id=6200" target="_blank">更多公告&gt;&gt;</a></p></div>
-        <!-- 最新公告 ]] -->
-
-        <!-- 四大支付方式[[ -->
-        <div class="title clr">
-            <h2>接入微信支付</h2>
-        </div>
-        <div class="function clr">
-            <ul class="guide-main clr">
-                <li class="guide-main-li-1">
-                    <a href="http://kf.qq.com/faq/120911VrYVrA150905zeYjMZ.html" target="_blank" onclick="pgvSendClick({hottag:'PAY.HOME.APPLY.IN_APP_WEB'});">
-                        <span class="guide-main-li-ico ico-mp"></span>
-                        <h3 class="title">公众号支付</h3>
-                        <p class="info">在微信内的商家页面上完成<em>公众号支付</em></p>
-                        <span class="btngreen">我要接入</span>
-                    </a>
-                </li>
-                <li class="guide-main-li-2">
-                    <a href="http://kf.qq.com/faq/120911VrYVrA150906F3qqY3.html" target="_blank" onclick="pgvSendClick({hottag:'PAY.HOME.APPLY.IN_APP'});">
-                        <span class="guide-main-li-ico ico-app"></span>
-                        <h3 class="title">APP支付</h3>
-                        <p class="info">在APP中，调起微信进行<em>APP支付</em></p>
-                        <span class="btngreen">我要接入</span>
-                    </a>
-                </li>
-                <li class="guide-main-li-3">
-                    <a href="http://kf.qq.com/faq/120911VrYVrA150906yUZze6.html" target="_blank" onclick="pgvSendClick({hottag:'PAY.HOME.APPLY.QR_CODE'});">
-                        <span class="guide-main-li-ico ico-code"></span>
-                        <h3 class="title">扫码支付</h3>
-                        <p class="info">扫描二维码进行<em>扫码支付</em></p>
-                        <span class="btngreen">我要接入</span>
-                    </a>
-                </li>
-                <li class="guide-main-li-4">
-                    <a href="http://kf.qq.com/faq/120911VrYVrA150906iQjQjI.html" target="_blank" onclick="pgvSendClick({hottag:'PAY.HOME.APPLY.QUICK_PAY'});">
-                        <span class="guide-main-li-ico ico-shuaka"></span>
-                        <h3 class="title">刷卡支付</h3>
-                        <p class="info">用户展示条码，商户扫描完成<em>刷卡支付</em></p>
-                        <span class="btngreen">我要接入</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- 四大支付方式 ]] -->
-
-        <!-- 微信支付商户通[[ -->
-        <div class="title clr">
-            <h2>微信支付商户通</h2>
-        </div>
-        <div class="through">
-            <ul>
-                <li class="l01">如何快速接入<strong>微信支付</strong>？</li>
-                <li class="l02">了解最新的<strong>支付技术接口</strong>？</li>
-                <li class="l03"><strong>微信商户</strong>后台操作有疑问？</li>
-                <li class="l04"><strong>微信现金红包</strong>怎么玩？</li>
-                <li class="l05">掌握最新的<strong>微信行业解决方案</strong>？</li>
-                <li class="l06">获取一手的<strong>微信支付官方动态</strong>？</li>
-            </ul>
-        </div>
-        <!-- 微信支付商户通 ]] -->
-    </div>
+<br>
+<hr>
+<div>
+    <!--HTML表单(form)可以把浏览者输入的数据传送到服务器端，这样服务器端程序就可以处理表单传过来的数据。
+     post/get 的区别这一部分内容属于后端程序员考虑的问题。action ：浏览者输入的数据被传送到的地方,比如一个PHP页面(save.php)。-->
+    <form method="post" action="save.php">
+        <!--label标签不会向用户呈现任何特殊效果，它的作用是为鼠标用户改进了可用性。如果你在 label 标签内点击文本，就会触发此控件。
+        就是说，当用户单击选中该label标签时，浏览器就会自动将焦点转到和标签相关的表单控件上（就自动选中和该label标签相关连的表单控件上）。 -->
+        <label for="username">用户名:</label>
+        <input type="text"  name="username" id="username" value="" />
+        <label for="pass">密码:</label>
+        <!--<input>标签为输入框，name：为文本框命名，以备后台程序ASP 、PHP使用。value：为文本输入框设置默认值。(一般起到提示作用)
+        当type="text"时，输入框为文本输入框;当type="password"时, 输入框为密码输入框。当type值设置为reset时，按钮才有重置作用；当type值设置为submit时，按钮才有提交作用
+         -->
+        <input type="password"  name="pass" id="pass" value="" />
+        <input type="submit" value="确定"  name="submit" />
+        <input type="reset" value="重置" name="reset" />
+        <br>
+        <hr>
+        <label>个人简介：</label>
+        <!--<textarea>为多行文本输入标签，cols ：多行输入域的列数。rows ：多行输入域的行数。 -->
+        <textarea rows="4" cols="50">在这里输入内容哦</textarea>
+        <br>
+        <hr>
+        <label>筛选活动排期:</label>
+        <select>
+            <option value="网页开发">网页开发</option>
+            <option value="网站建设">网站建设</option>
+            <option value="微信公众号开发">微信公众号开发</option>
+            <option value="小程序">小程序</option>
+        </select>
+    </form>
 </div>
-<!-- 内容 ]] -->
-
-<script src="https://www.tenpay.com/v2/res/js/global/tenpayctrl_v2-min.js"></script>
-<script>window["MCH.tenpaycertV2.time"]=[new Date()]</script>
-<script id="legos:22410" ver="22410:20151023:20170106102318" name="MCH.tenpaycertV2" src="https://wx.gtimg.com/mch/js/ver/2015/10/mch.tenpaycertV2.20151023.js?t=20170106102318" charset="utf-8"></script><!--[if !IE]>|xGv00|09219d01d9d2312179afd1ffbb55230b<![endif]--><!--[if !IE]>|xGv00|8ab59df4495293a71573934cfa4d640c<![endif]-->
-<script>window["MCH.home.time"]=[new Date()]</script>
-<script id="legos:22134" ver="22134:20140516:20170105201629" name="MCH.home" charset="utf-8">
-    window['MCH.home.time'] && window['MCH.home.time'].push(new Date());
-    function $addToken(url,type,skey){var token=$getToken(skey);if(url==""||(url.indexOf("://")<0?location.href:url).indexOf("http")!=0){return url;}
-        if(url.indexOf("#")!=-1){var f1=url.match(/\?.+\#/);if(f1){var t=f1[0].split("#"),newPara=[t[0],"&g_tk=",token,"&g_ty=",type,"#",t[1]].join("");return url.replace(f1[0],newPara);}else{var t=url.split("#");return[t[0],"?g_tk=",token,"&g_ty=",type,"#",t[1]].join("");}}
-        return token==""?(url+(url.indexOf("?")!=-1?"&":"?")+"g_ty="+type):(url+(url.indexOf("?")!=-1?"&":"?")+"g_tk="+token+"&g_ty="+type);};var $ajax=(function(window,undefined){var oXHRCallbacks,xhrCounter=0;var fXHRAbortOnUnload=window.ActiveXObject?function(){for(var key in oXHRCallbacks){oXHRCallbacks[key](0,1);}}:false;return function(opt){var o={url:'',method:'GET',data:null,type:"text",async:true,cache:false,timeout:0,autoToken:true,username:'',password:'',beforeSend:$empty(),onSuccess:$empty(),onError:$empty(),onComplete:$empty()};for(var key in opt){o[key]=opt[key]}
-        var callback,timeoutTimer,xhrCallbackHandle,ajaxLocation,ajaxLocParts;try{ajaxLocation=location.href;}
-        catch(e){ajaxLocation=document.createElement("a");ajaxLocation.href="";ajaxLocation=ajaxLocation.href;}
-        ajaxLocParts=/^([\w\+\.\-]+:)(?:\/\/([^\/?#:]*)(?::(\d+)|)|)/.exec(ajaxLocation.toLowerCase())||[];o.isLocal=/^(?:about|app|app\-storage|.+\-extension|file|res|widget):$/.test(ajaxLocParts[1]);o.method=(typeof(o.method)!="string"||o.method.toUpperCase()!="POST")?"GET":"POST";o.data=(typeof o.data=="string")?o.data:$makeUrl(o.data);if(o.method=='GET'&&o.data){o.url+=(o.url.indexOf("?")<0?"?":"&")+o.data;}
-        if(o.autoToken){o.url=$addToken(o.url,"ajax");}
-        o.xhr=$xhrMaker();if(o.xhr===null){return false;}
-        try{if(o.username){o.xhr.open(o.method,o.url,o.async,o.username,o.password);}
-        else{o.xhr.open(o.method,o.url,o.async);}}
-        catch(e){o.onError(-2,e);return false;}
-        if(o.method=='POST'){o.xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');}
-        if(!o.cache){o.xhr.setRequestHeader('If-Modified-Since','Thu, 1 Jan 1970 00:00:00 GMT');o.xhr.setRequestHeader('Cache-Control','no-cache');}
-        o.beforeSend(o.xhr);if(o.async&&o.timeout>0){if(o.xhr.timeout===undefined){timeoutTimer=setTimeout(function(){if(o.xhr&&callback){callback(0,1);}
-            o.onError(0,null,'timeout');},o.timeout);}
-        else{o.xhr.timeout=o.timeout;o.xhr.ontimeout=function(){if(o.xhr&&callback){callback(0,1);}
-            o.onError(0,null,'timeout');};}}
-        o.xhr.send(o.method=='POST'?o.data:null);callback=function(e,isAbort){if(timeoutTimer){clearTimeout(timeoutTimer);timeoutTimer=undefined;}
-            if(callback&&(isAbort||o.xhr.readyState===4)){callback=undefined;if(xhrCallbackHandle){o.xhr.onreadystatechange=$empty();if(fXHRAbortOnUnload){try{delete oXHRCallbacks[xhrCallbackHandle];}
-            catch(e){}}}
-                if(isAbort){if(o.xhr.readyState!==4){o.xhr.abort();}}
-                else{var status,statusText,responses;responses={headers:o.xhr.getAllResponseHeaders()};status=o.xhr.status;try{statusText=o.xhr.statusText;}
-                catch(e){statusText="";}
-                    try{responses.text=o.xhr.responseText;}
-                    catch(e){responses.text="";}
-                    if(!status&&o.isLocal){status=responses.text?200:404;}
-                    else if(status===1223){status=204;}
-                    if(status>=200&&status<300){responses.text=responses.text.replace(/<!--\[if !IE\]>[\w\|]+<!\[endif\]-->/g,'');switch(o.type){case'text':o.onSuccess(responses.text);break;case"json":var json;try{json=(new Function("return ("+responses.text+")"))();}
-                    catch(e){o.onError(status,e,responses.text);}
-                        if(json){o.onSuccess(json);}
-                        break;case"xml":o.onSuccess(o.xhr.responseXML);break;}}
-                    else{if(status===0&&o.timeout>0){o.onError(status,null,'timeout');}
-                    else{o.onError(status,null,statusText);}}
-                    o.onComplete(status,statusText,responses);}
-                delete o.xhr;}};if(!o.async){callback();}
-        else if(o.xhr.readyState===4){setTimeout(callback,0);}
-        else{xhrCallbackHandle=++xhrCounter;if(fXHRAbortOnUnload){if(!oXHRCallbacks){oXHRCallbacks={};if(window.attachEvent){window.attachEvent("onunload",fXHRAbortOnUnload);}
-        else{window["onunload"]=fXHRAbortOnUnload;}}
-            oXHRCallbacks[xhrCallbackHandle]=callback;}
-            o.xhr.onreadystatechange=callback;}};})(window,undefined);function $empty(){return function(){return true;}};function $getCookie(name){var reg=new RegExp("(^| )"+name+"(?:=([^;]*))?(;|$)"),val=document.cookie.match(reg);return val?(val[2]?unescape(val[2]):""):null;};function $getToken(skey){var skey=skey?skey:$getCookie("skey");return skey?$time33(skey):"";};function $makeUrl(data){var arr=[];for(var k in data){arr.push(k+"="+data[k]);};return arr.join("&");};function $namespace(name){for(var arr=name.split(','),r=0,len=arr.length;r<len;r++){for(var i=0,k,name=arr[r].split('.'),parent={};k=name[i];i++){i===0?eval('(typeof '+k+')==="undefined"?('+k+'={}):"";parent='+k):(parent=parent[k]=parent[k]||{});}}};function $setCookie(name,value,expires,path,domain,secure){var exp=new Date(),expires=arguments[2]||null,path=arguments[3]||"/",domain=arguments[4]||null,secure=arguments[5]||false;expires?exp.setMinutes(exp.getMinutes()+parseInt(expires)):"";document.cookie=name+'='+escape(value)+(expires?';expires='+exp.toGMTString():'')+(path?';path='+path:'')+(domain?';domain='+domain:'')+(secure?';secure':'');};function $strTrim(str,code){var argus=code||"\\s";var temp=new RegExp("(^"+argus+"*)|("+argus+"*$)","g");return str.replace(temp,"");};function $time33(str){for(var i=0,len=str.length,hash=5381;i<len;++i){hash+=(hash<<5)+str.charAt(i).charCodeAt();};return hash&0x7fffffff;};function $xhrMaker(){var xhr;try{xhr=new XMLHttpRequest();}catch(e){try{xhr=new ActiveXObject("Msxml2.XMLHTTP");}catch(e){try{xhr=new ActiveXObject("Microsoft.XMLHTTP");}catch(e){xhr=null;}}};return xhr;};$namespace("MCH.home");MCH.home={tenpayEdit:''};MCH.home.init=function(){homeThat=this;homeThat.tenpayEdit=new MCH.mmpayEdit({bindObjId:"mmpayPwdEdit",width:258,height:44},{isShowFunc:MCH.home.isShowFunc,returnCallBack:MCH.home.editShowReturn},this);this.bind();Common.exdAttrBrowser();};MCH.home.isShowFunc=function(){var username=$strTrim($(".login-form").find("input[name=username]").val());if(Common.isTenpayMchByName(username)){return true;}else{return false;}};MCH.home.editShowReturn=function(editRet){var browserFunc=function(){var sys=Common.getBrowserVersion();if(sys.osType=="mac"&&sys.browserName=="Safari"){$("#IDBrowserSafariTips").removeClass("hide");}else if(sys.osType=="mac"&&sys.browserName=="Chrome"&&sys.browserVersion>="47"){$("#IDBrowserMacChromeTips").removeClass("hide");}else if(sys.osType=="windows"&&sys.browserName!="IE"){$("#IDBrowserMacChromeTips").removeClass("hide");}};try{var version=editRet.editObj.ctrl.Version.toString();if(version&&(version>1206)){return true;}else{browserFunc();}}catch(e){browserFunc();}};MCH.home.focus_fuc=function(){$(".login-form").removeClass("login-account-on");$(".login-form").addClass("login-password-on");};MCH.home.blur_fuc=function(){$(".login-form").removeClass("login-password-on");};MCH.home.enter_fuc=function(){return null;};MCH.home.ossAttrIncAPI=function(id,key){var postData='id='+id+'&key='+key;$ajax({url:'/webreport/ossattrapi',data:postData,method:'post',type:'json',async:true,onSuccess:function(data){},onError:function(msg){}});};MCH.home.userNameBlur=function(){var username=$(".login-form").find("input[name=username]").val();var length=username.length;switch(length){case 0:MCH.home.ossAttrIncAPI(63769,18);break;case 1:MCH.home.ossAttrIncAPI(63769,19);break;case 2:MCH.home.ossAttrIncAPI(63769,20);break;case 3:MCH.home.ossAttrIncAPI(63769,21);break;case 4:MCH.home.ossAttrIncAPI(63769,22);break;case 5:MCH.home.ossAttrIncAPI(63769,23);break;case 6:MCH.home.ossAttrIncAPI(63769,24);break;case 7:MCH.home.ossAttrIncAPI(63769,25);break;case 8:MCH.home.ossAttrIncAPI(63769,26);break;case 9:MCH.home.ossAttrIncAPI(63769,27);break;case 10:MCH.home.ossAttrIncAPI(63769,28);break;default:MCH.home.ossAttrIncAPI(63769,29);break;}
-        var ua=navigator.userAgent.toLowerCase();var reg=/[Aa]ndroid/;if(reg.test(ua)){MCH.home.ossAttrIncAPI(63769,31);}else{MCH.home.ossAttrIncAPI(63769,32);}};MCH.home.bind=function(){$("input[name=username]").focus();if($getCookie("username")){MCH.home.ossAttrIncAPI(63769,30);$("input[name=username]").val($getCookie("username"));$("#memory_username").addClass('cbx-on');}
-        $("input[name=username]").on('focus',function(){MCH.home.ossAttrIncAPI(63769,17);$(".login-form").removeClass("login-password-on");$(".login-form").addClass("login-account-on");});$("input[name=password]").on('focus',function(){$(".login-form").removeClass("login-account-on");$(".login-form").addClass("login-password-on");homeThat.tenpayEdit.show();});$("input[name=username]").on('blur',function(){MCH.home.userNameBlur();$(".login-form").removeClass("login-account-on");$(".login-form").addClass("login-password-on");homeThat.tenpayEdit.show();});$("#memory_username_label").on('click',function(){if($('#memory_username').hasClass('cbx-on')){$('#memory_username').removeClass('cbx-on');}else{$('#memory_username').addClass('cbx-on');}});$("#do_login").on('click',function(){$("#errmsg").text("").addClass('hide');var temp_usrname=$(".login-form").find("input[name=username]").val();$(".login-form").find("input[name=username]").val($strTrim(temp_usrname));if($("#memory_username").hasClass('cbx-on')){$setCookie('username',$("input[name=username]").val(),'3600');}else{$setCookie('username',$("input[name=username]").val());}
-            var username=$(".login-form").find("input[name=username]").val();var password=$(".login-form").find("input[name=password]").val();password=homeThat.tenpayEdit.getPwd();if(username&&password){password=Common.encryptPassword(password);if($(".login-verify").html()){if($("input[name=checkword_in]").val()){if($("input[name=checkword_in]").val().length!=4){$("#errmsg").text('请检查验证码').removeClass('hide');}else{$(".login-form").find("input[name=password]").val(password);$(".login-form").submit();}}
-            else{$("#errmsg").text('请输入验证码').removeClass('hide');}}else{$(".login-form").find("input[name=password]").val(password);$(".login-form").submit();}}else{if(username.length==0&&password===false){$("#errmsg").text('请输入帐号和密码').removeClass('hide');}else if(username.length==0){$("#errmsg").text('请输入登录帐号').removeClass('hide');}else{$("#errmsg").text(homeThat.tenpayEdit.errmsg).removeClass('hide');}}});};MCH.home.init();
-    window['MCH.home']='22134:20140516:20170105201629';
-    window['MCH.home.time'] && window['MCH.home.time'].push(new Date());
-</script><!--[if !IE]>|xGv00|6f5e5c77fe153f6e42ad173204c021c5<![endif]-->
-<script>window["MCH.cms.time"]=[new Date()]</script>
-<script id="legos:22392" ver="22392:20151027:20160810123858" name="MCH.cms" src="https://wx.gtimg.com/mch/js/ver/2015/10/mch.cms.20151027.js?t=20160810123858" charset="utf-8"></script><!--[if !IE]>|xGv00|b299de016a6e1f795625ccbc51c6c029<![endif]-->
-
-<!-- 底部[[ -->
-<div class="footer">
-    <div class="wrap">
-        <p>
-            <a target="_blank" href="http://help.tenpay.com/cgi-bin/helpcenter/help_center.cgi?id=1&amp;type=0">关于财付通</a>
-            <i class="vs">|</i>
-            <a target="_blank" href="https://pay.weixin.qq.com/index.php/core/home/pay_pact_v4">平台使用协议</a>
-            <i class="vs">|</i>
-            <a href="https://pay.weixin.qq.com/index.php/public/apply_sign/protocol_v2" target="_blank">支付服务协议</a>
-            <i class="vs">|</i>
-            Powered By Tencent &amp; Tenpay　Copyright© 2005-<script>
-            var year="";
-            mydate=new Date();
-            myyear=mydate.getYear();
-            year=(myyear > 200) ? myyear : 1900 + myyear;
-            document.write(year);
-        </script>2017 Tenpay All Rights Reserved.
-        </p>
-        <p>
-            <a target="_blank" href="http://weixin.qq.com/">微信</a>
-            <i class="vs">|</i>
-            <a target="_blank" href="https://mp.weixin.qq.com/">微信公众平台</a>
-            <i class="vs">|</i>
-            <a target="_blank" href="https://open.weixin.qq.com/">微信开放平台</a>
-            <i class="vs">|</i>
-            <a target="_blank" href="http://e.qq.com/">广点通</a>
-            <i class="vs">|</i>
-            <a target="_blank" href="http://open.qq.com/">腾讯开放平台</a>
-        </p>
-    </div>
+<br>
+<hr>
+<div>
+    <!--<audio> 标签定义声音，比如音乐或其他音频流,src里面的音乐格式最好是mp3，它兼容所有的浏览器，controls属性是显示控制音乐的控制按钮 -->
+    <audio  controls="controls" src="http://hackweek.oss-cn-shanghai.aliyuncs.com/t/audio/zaowuzhe.mp3"></audio>
 </div>
-<script type="text/javascript">if(typeof $jqueryUi == "undefined"){document.write('<script type="text/javascript" src="https://wx.gtimg.com/third/jquery/jquery-ui.js"></script"+">');}</script><script type="text/javascript" src="https://wx.gtimg.com/third/jquery/jquery-ui.js"></script"+">
-<script>window["MCH.footer.time"]=[new Date()]</script>
-<script id="legos:22125" ver="22125:20140422:20161206161027" name="MCH.footer" charset="utf-8">
-    window['MCH.footer.time'] && window['MCH.footer.time'].push(new Date());
-    function $addToken(url,type,skey){var token=$getToken(skey);if(url==""||(url.indexOf("://")<0?location.href:url).indexOf("http")!=0){return url;}
-        if(url.indexOf("#")!=-1){var f1=url.match(/\?.+\#/);if(f1){var t=f1[0].split("#"),newPara=[t[0],"&g_tk=",token,"&g_ty=",type,"#",t[1]].join("");return url.replace(f1[0],newPara);}else{var t=url.split("#");return[t[0],"?g_tk=",token,"&g_ty=",type,"#",t[1]].join("");}}
-        return token==""?(url+(url.indexOf("?")!=-1?"&":"?")+"g_ty="+type):(url+(url.indexOf("?")!=-1?"&":"?")+"g_tk="+token+"&g_ty="+type);};var $ajax=(function(window,undefined){var oXHRCallbacks,xhrCounter=0;var fXHRAbortOnUnload=window.ActiveXObject?function(){for(var key in oXHRCallbacks){oXHRCallbacks[key](0,1);}}:false;return function(opt){var o={url:'',method:'GET',data:null,type:"text",async:true,cache:false,timeout:0,autoToken:true,username:'',password:'',beforeSend:$empty(),onSuccess:$empty(),onError:$empty(),onComplete:$empty()};for(var key in opt){o[key]=opt[key]}
-        var callback,timeoutTimer,xhrCallbackHandle,ajaxLocation,ajaxLocParts;try{ajaxLocation=location.href;}
-        catch(e){ajaxLocation=document.createElement("a");ajaxLocation.href="";ajaxLocation=ajaxLocation.href;}
-        ajaxLocParts=/^([\w\+\.\-]+:)(?:\/\/([^\/?#:]*)(?::(\d+)|)|)/.exec(ajaxLocation.toLowerCase())||[];o.isLocal=/^(?:about|app|app\-storage|.+\-extension|file|res|widget):$/.test(ajaxLocParts[1]);o.method=(typeof(o.method)!="string"||o.method.toUpperCase()!="POST")?"GET":"POST";o.data=(typeof o.data=="string")?o.data:$makeUrl(o.data);if(o.method=='GET'&&o.data){o.url+=(o.url.indexOf("?")<0?"?":"&")+o.data;}
-        if(o.autoToken){o.url=$addToken(o.url,"ajax");}
-        o.xhr=$xhrMaker();if(o.xhr===null){return false;}
-        try{if(o.username){o.xhr.open(o.method,o.url,o.async,o.username,o.password);}
-        else{o.xhr.open(o.method,o.url,o.async);}}
-        catch(e){o.onError(-2,e);return false;}
-        if(o.method=='POST'){o.xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');}
-        if(!o.cache){o.xhr.setRequestHeader('If-Modified-Since','Thu, 1 Jan 1970 00:00:00 GMT');o.xhr.setRequestHeader('Cache-Control','no-cache');}
-        o.beforeSend(o.xhr);if(o.async&&o.timeout>0){if(o.xhr.timeout===undefined){timeoutTimer=setTimeout(function(){if(o.xhr&&callback){callback(0,1);}
-            o.onError(0,null,'timeout');},o.timeout);}
-        else{o.xhr.timeout=o.timeout;o.xhr.ontimeout=function(){if(o.xhr&&callback){callback(0,1);}
-            o.onError(0,null,'timeout');};}}
-        o.xhr.send(o.method=='POST'?o.data:null);callback=function(e,isAbort){if(timeoutTimer){clearTimeout(timeoutTimer);timeoutTimer=undefined;}
-            if(callback&&(isAbort||o.xhr.readyState===4)){callback=undefined;if(xhrCallbackHandle){o.xhr.onreadystatechange=$empty();if(fXHRAbortOnUnload){try{delete oXHRCallbacks[xhrCallbackHandle];}
-            catch(e){}}}
-                if(isAbort){if(o.xhr.readyState!==4){o.xhr.abort();}}
-                else{var status,statusText,responses;responses={headers:o.xhr.getAllResponseHeaders()};status=o.xhr.status;try{statusText=o.xhr.statusText;}
-                catch(e){statusText="";}
-                    try{responses.text=o.xhr.responseText;}
-                    catch(e){responses.text="";}
-                    if(!status&&o.isLocal){status=responses.text?200:404;}
-                    else if(status===1223){status=204;}
-                    if(status>=200&&status<300){responses.text=responses.text.replace(/<!--\[if !IE\]>[\w\|]+<!\[endif\]-->/g,'');switch(o.type){case'text':o.onSuccess(responses.text);break;case"json":var json;try{json=(new Function("return ("+responses.text+")"))();}
-                    catch(e){o.onError(status,e,responses.text);}
-                        if(json){o.onSuccess(json);}
-                        break;case"xml":o.onSuccess(o.xhr.responseXML);break;}}
-                    else{if(status===0&&o.timeout>0){o.onError(status,null,'timeout');}
-                    else{o.onError(status,null,statusText);}}
-                    o.onComplete(status,statusText,responses);}
-                delete o.xhr;}};if(!o.async){callback();}
-        else if(o.xhr.readyState===4){setTimeout(callback,0);}
-        else{xhrCallbackHandle=++xhrCounter;if(fXHRAbortOnUnload){if(!oXHRCallbacks){oXHRCallbacks={};if(window.attachEvent){window.attachEvent("onunload",fXHRAbortOnUnload);}
-        else{window["onunload"]=fXHRAbortOnUnload;}}
-            oXHRCallbacks[xhrCallbackHandle]=callback;}
-            o.xhr.onreadystatechange=callback;}};})(window,undefined);function $empty(){return function(){return true;}};function $getCookie(name){var reg=new RegExp("(^| )"+name+"(?:=([^;]*))?(;|$)"),val=document.cookie.match(reg);return val?(val[2]?unescape(val[2]):""):null;};function $getToken(skey){var skey=skey?skey:$getCookie("skey");return skey?$time33(skey):"";};function $makeUrl(data){var arr=[];for(var k in data){arr.push(k+"="+data[k]);};return arr.join("&");};function $namespace(name){for(var arr=name.split(','),r=0,len=arr.length;r<len;r++){for(var i=0,k,name=arr[r].split('.'),parent={};k=name[i];i++){i===0?eval('(typeof '+k+')==="undefined"?('+k+'={}):"";parent='+k):(parent=parent[k]=parent[k]||{});}}};function $time33(str){for(var i=0,len=str.length,hash=5381;i<len;++i){hash+=(hash<<5)+str.charAt(i).charCodeAt();};return hash&0x7fffffff;};function $xhrMaker(){var xhr;try{xhr=new XMLHttpRequest();}catch(e){try{xhr=new ActiveXObject("Msxml2.XMLHTTP");}catch(e){try{xhr=new ActiveXObject("Microsoft.XMLHTTP");}catch(e){xhr=null;}}};return xhr;};$namespace("MCH.footer");MCH.footer={searchChildMerchantTimer:'',searchChildMerchantName:'',protocolDG:'',protocolCbx:'',protocolBtn:''};MCH.footer.init=function(){footerThat=this;footerThat.bind();footerThat.changeVerify();MCH.footer.protocolDG=Common.getPop('MchProtocolDG');MCH.footer.protocolBtn=$('#MchProtocolBn');MCH.footer.protocolCbx=Common.getCbx({id:'MchProtocolCbx',onCheck:function(){MCH.footer.protocolBtn.removeClass('btn-default').addClass('btn-primary');},onUnCheck:function(){MCH.footer.protocolBtn.removeClass('btn-primary').addClass('btn-default');}});MCH.footer.checkSignProtocol();};MCH.footer.bind=function(){footerThat.bindChangeCheckimg();footerThat.bindDatepicker();MCH.header.bindCloseDialog();footerThat.bindSelect();$('#MchProtocolBn').on('click',function(){if(MCH.footer.protocolCbx.isCheck()){var postData=Common.getCrsfToken();var ret=false;$ajax({url:'/index.php/core/merchant/sign_mch_protocol',data:postData,method:'post',type:'json',async:false,onSuccess:function(data){MCH.header.handleAjax(data);if(data.errorcode!=0){ret=false;}else{ret=true;}},onError:function(msg){ret=false;}});if(!ret){MCH.header.showErrorAlertDialog('操作失败,请稍后重试');}else{MCH.footer.protocolDG.close();}}});};MCH.footer.changeVerify=function(){if($(".img-verify").size()>0){$(".img-verify").attr("src","http://captcha.qq.com/getimage?aid=755049101&rd="+Math.random());}};MCH.footer.bindChangeCheckimg=function(){$(".change-verify").on('click',function(){footerThat.changeVerify();});$(".checkimg-input").on('keydown',function(){var value=$(this).val();result=false;if(value.length==4){var token_name=$("#token").attr("name");var hash=$("#token").val();var post_data=token_name+'='+hash+'&verify_word='+value;$ajax({url:'/index.php/core/home/vaild_checkimg',data:post_data,method:'post',type:'json',async:false,onSuccess:function(data){if(data.errorcode==0){result=true;}else{}},onError:function(msg){result=false;}});}});};MCH.footer.bindDatepicker=function(timepicker){if($(".datepicker-input").size()<=0){return false;}
-        false?$jqueryUi():'';timepicker=timepicker?true:false;var format='Y-m-d';if(timepicker){format='Y-m-d H:i';}
-        $('.datepicker-input').datetimepicker({defaultTime:'00:00:00',step:1,format:format,lang:'ch',timepicker:timepicker,yearStart:1970,closeOnDateSelect:true});$("input.datepicker-input").next("i.ico-date").on('click',function(){$(this).prev('input.datepicker-input').focus();});};MCH.footer.bindSelect=function(){$("div.dropdown-menu").on('click',function(){$(this).addClass('open');});$("ul.dropdown-list").on('click','li',function(){var value=$(this).children("a").attr('data-target');var text=$(this).children("a").text();var drop_switch=$(this).parent().prev("a.dropdown-switch");drop_switch.attr('data-target',value);drop_switch.children('label').text(text);var id=drop_switch.children('label').attr('id');var name=drop_switch.children('label').html();$(this).parent().parent().removeClass('open');typeof SelectCallBack=='function'&&SelectCallBack(id,name);return false;});$("div.dropdown-menu").mouseleave(function(){if($(this).hasClass('open')){$(this).removeClass('open');}});};MCH.footer.searchChildMerchant=function(params){var obj=params['obj'];var value=obj.val();if(value!=MCH.footer.searchChildMerchantName){return false;}
-        var merchants={};var curpage=params['curpage'];var total_page=1;var isAppend=params['isAppend'];var list=obj.parent().parent().children('ul.dropdown-list');if(!isAppend){list.children().remove();}
-        var token_name=$("#token").attr("name");var hash=$("#token").val();var post_data=token_name+'='+hash+'&merchant_name='+value+'&page_num='+curpage;$ajax({url:'/index.php/extend/child_merchant/query_merchant_by_name',data:post_data,method:'post',type:'json',async:true,onSuccess:function(data){if(data.errorcode==0){merchants=data.data.list;curpage=data.data.curpage;total_page=data.data.total_page;for(var key in merchants){var model='<li><a href="#" data-target="'+key+'">'+merchants[key]+'</a></li>';list.append(model);}
-            if(curpage<total_page){var nextPage=parseInt(curpage,10)+1;var model='<dl class="jsDropDownLiMerchantMore"><a href="#" data-target="'+nextPage+'">获取更多子商户</a></dl>';list.append(model);}}},onError:function(msg){}});};MCH.footer.checkSignProtocol=function(){var whiteUrl=['/index.php/core/home','/index.php/core/apply_progress','/index.php/core/apply_bank','/index.php/core/apply_sign','/index.php/core/merchantupgrading','/index.php/core/submerchant/create_sub_merchant','/index.php/public/cms'];var localtion=window.location.pathname;prefix='/index.php';if(localtion.substr(0,prefix.length)!=prefix){localtion=prefix+localtion;}
-        for(var i=0;i<whiteUrl.length;i++){if(localtion.substr(0,whiteUrl[i].length)==whiteUrl[i]){return;}}
-        var postData=Common.getCrsfToken();$ajax({url:'/index.php/public/merchant/check_sign_protocol',data:postData,method:'post',type:'json',async:true,onSuccess:function(data){MCH.header.handleAjax(data);if(data.errorcode!=0){MCH.footer.protocolDG.open();}},onError:function(msg){}});};MCH.footer.init();
-    window['MCH.footer']='22125:20140422:20161206161027';
-    window['MCH.footer.time'] && window['MCH.footer.time'].push(new Date());
-</script><!--[if !IE]>|xGv00|f223e6d2e6d5217ac8b233a5d7602c18<![endif]-->
-<script>TA_STATS_ARGS={}</script>
-<script type="text/javascript" src="https://tajs.qq.com/res/js/wechatpay.min.js" charset="UTF−8"></script>
-<!-- <script type="text/javascript" src="https://res.wx.qq.com/payactres/zh_CN/htmledition/js/lib/analysis/2.0/lib-min.js" charset="UTF−8" async="async" defer="defer"></script> -->
-<!--[if !IE]>|xGv00|f5ede3a717a9f61ace3f2ab9101502d0<![endif]-->
-<!-- 底部 ]] -->
-<script language="javascript" src="https://pingjs.qq.com/tcss.ping.https.js"></script>
-<script language="javascript">
-    if(typeof(pgvMain) == 'function')
-        pgvMain();
-</script>
-
-
-<!--[if !IE]>|xGv00|d554775be84487e94ed910def6bb127d<![endif]--></body></html>
+<br>
+<hr>
+<div>
+    <!--<video> 标签定义视频，比如电影片段或其他视频流，src里面的音乐格式最好是mp4，它兼容所有的浏览器，controls属性是显示控制视频的控制按钮 -->
+    <video controls="controls" src="http://hackweek.oss-cn-shanghai.aliyuncs.com/t/audio/video.mp4" width="300"></video>
+</div>
+<!--footer标签声明这个是网页的底部，通常会保护作者、联系方式、版权、相关文件等 -->
+<footer>
+    <!--般网页中会有一些网站的联系地址信息需要在网页中展示出来，这些联系地址信息如公司的地址就可以<address>标签。也可以定义一个地址（比如电子邮件地址）、签名或者文档的作者身份。 -->
+    <address>
+        <!--<a>标签还有一个作用是可以链接Email地址，使用mailto能让访问者便捷向网站管理者发送电子邮件。 -->
+        ©️版权 <a href="mailto:code@hackweek.org">HackWeek技术组</a>.<br>
+    </address>
+</footer>
+</body>
+</html>
