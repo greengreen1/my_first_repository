@@ -1,230 +1,1 @@
-<!DOCTYPE html>
-<!--重点掌握margin+float的方式，来实现随心所欲的div+css方式布局，具体可参考 http://jo2.org/css-auto-adapt-width/ -->
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="" >
-    <meta name="description" content="">
-    <title>CSS基础知识</title>
-    <style type="text/css">
-        body {
-            font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
-        }
-        .wrap{
-            margin: 0 ;
-        }
-        .header,.footer{
-            margin: 20px 0 ;
-            height:40px;
-            border:solid 1px #0000FF;
-            background-color: black;
-            color: white;
-            vertical-align: middle;
-            line-height: 40px;
-        }
-        .nav_a{text-align: center;margin-left: 10px}
-        #container{
-            overflow: hidden; *zoom: 1;
-        }
-        #left{
-            width: 100%;
-            margin-left: -410px;
-            float: left;
-
-        }
-        #left_content1,#left_content2,#left_content3,#left_content4{
-            padding: 10px;
-            margin-left: 410px;
-            background-color: #eee;
-            margin-bottom: 10px;
-        }
-        #right{
-            float: right;
-            width:400px;
-
-            background-color: #eee;
-        }
-        p{text-indent:2em;}
-        ul{list-style: none}
-        .img_ul{
-            width: auto;
-        }
-        .img_ul li,.nav_ul li{width:auto; height:auto; display:inline-block}
-        .nav_ul {margin: 0}
-        .nav_ul li a{margin-right: 10px}
-        table {
-            width: 100%;
-            border-collapse:collapse;
-
-        }
-        th{background-color: black;color:white;}
-        td{text-align: center}
-        #right_title{text-align: center}
-        .nav{float: right}
-
-         label{text-align: right; width: 150px;margin-right: 10px;display: inline-block}
-         input[type="text"]{text-align: left; width: 150px; vertical-align: middle; display: inline-block}
-        .hint_div{color: darkgray;padding-left: 160px}
-        textarea{vertical-align: top;font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;}
-        input[type="button"]{width: 300px;background-color:deepskyblue;margin:0 auto;height:30px;display: block}
-        address{text-align: center}
-
-
-    </style>
-</head>
-<body>
-<div class="wrap">
-    <div class="header">
-        <a class="nav_a" >导航</a>
-        <div class="nav">
-            <ul class="nav_ul">
-                <li><a>导航链接一</a></li>
-                <li><a>导航链接二</a></li>
-                <li><a>导航链接三</a></li>
-                <li><a>导航链接四</a></li>
-            </ul>
-        </div>
-
-
-    </div>
-    <div id="container">
-        <div id="left">
-            <div id="left_content1">
-                <h1>文章一级标题</h1>
-                <h2>文章二级标题</h2>
-                Amy   <span>2017.3.11</span>
-                <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了
-                    <br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了
-                    <br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
-                    <a  href="http://ife.baidu.com">这里有一个链接链接到http://ife.baidu.com</a>
-                    这是一个很长很长的段落，这是一个很长很长的段落，<b>这里有个粗体字</b>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。
-                </p>
-                <img src="./img/css.jpg">
-                <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了
-                    <br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了
-                    <br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
-                    <a target="_blank" href="http://ife.baidu.com">这里有一个链接点击后新窗口链接到http://ife.baidu.com</a>
-                    这是一个很长很长的段落，这是一个很长很长的段落，<b>这里有个粗体字</b>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。
-                </p>
-            </div>
-            <div id="left_content2">
-                <h1>另一篇文章文章一级标题</h1>
-                <h2>文章二级标题</h2>
-                Amy   <span>2017.3.11</span>
-                <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了
-                    <br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了
-                    <br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
-                    <a  href="http://ife.baidu.com">这里有一个链接链接到http://ife.baidu.com</a>
-                    这是一个很长很长的段落，这是一个很长很长的段落，<b>这里有个粗体字</b>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。
-                </p>
-                <img src="./img/css.jpg">
-                <ul class="project_ul">
-                    <li>列表项目一</li>
-                    <li>列表项目二</li>
-                    <li>列表项目三</li>
-                    <li>列表项目四</li>
-                </ul>
-            </div>
-            <div id="left_content3">
-                <h1>图片</h1>
-                <ul class="img_ul">
-                    <li><img src="./img/car.png"></li>
-                    <li><img src="./img/car.png"></li>
-                    <li><img src="./img/car.png"></li>
-                    <li><img src="./img/car.png"></li>
-                    <li><img src="./img/car.png"></li>
-                    <li><img src="./img/car.png"></li>
-                    <li><img src="./img/car.png"></li>
-                    <li><img src="./img/car.png"></li>
-                    <li><img src="./img/car.png"></li>
-                    <li><img src="./img/car.png"></li>
-                </ul>
-            </div>
-            <div id="left_content4">
-                <h1>最后一篇文章一级标题</h1>
-                <h2>文章二级标题</h2>
-                Amy   <span>2017.3.11</span>
-                <ol>
-                    <li><b>排名1</b></li>
-                    <li><b>排名2</b></li>
-                    <li><b>排名3</b></li>
-                </ol>
-                <div>
-                    <b>下面是一个表格，我这里给表格加了一个border="1"好让你们看出这是一个表格，你们不用写html时不需要加</b>
-                    <table border="1">
-                        <tr><th>表头</th><th>表头</th><th>表头</th></tr>
-                        <tr><td>表内容单元格</td><td>表内容单元格</td><td>表内容单元格</td></tr>
-                        <tr><td>表内容单元格</td><td>表内容单元格</td><td>表内容单元格</td></tr>
-                        <tr><td>表内容单元格</td><td>表内容单元格</td><td>表内容单元格</td></tr>
-                        <tr><td>表内容单元格</td><td>表内容单元格</td><td>表内容单元格</td></tr>
-
-                    </table>
-                </div>
-
-            </div>
-        </div>
-        <div id="right">
-            <div><h1 id="right_title">侧栏的标题</h1></div>
-            <div id="form_div">
-                <form class="form-box" >
-                    <div class="form-group">
-                        <label class="form-lable">请输入邮箱地址</label>
-                        <input class="form-input" type="text" value="这是一个文本输入框" >
-                    </div>
-                    <div class="hint_div">邮箱地址请按要求格式输入</div>
-                    <div class="form-group">
-                        <label class="form-lable">请输入密码</label>
-                        <input class="form-input" type="password">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-lable">请重复输入密码</label>
-                        <input class="form-input" type="password">
-                    </div>
-                    <div class="hint_div">密码为6-16位英文数字</div>
-                    <div class="=form-group">
-                        <label>性别</label>
-                        <input type="radio" name="sex" value="男" checked>男
-                        <input type="radio" name="sex" value="女">女
-                    </div>
-                    <div class="=form-group">
-                        <label>城市</label>
-                        <select>
-                            <option value="北京" >北京</option>
-                            <option value="上海" >上海</option>
-                            <option value="广州" >广州</option>
-                            <option value="深圳" >深圳</option>
-                        </select>
-                    </div>
-                    <div class="=form-group">
-                        <label>爱好</label>
-                        <input type="checkbox" name="hobby" value="运动">运动
-                        <input type="checkbox" name="hobby" value="艺术">艺术
-                        <input type="checkbox" name="hobby" value="科学">科学
-                    </div>
-                    <div class="=form-group">
-                        <label>个人描述</label>
-                        <textarea name="description" rows="10" cols="30">这是一个多行输入框，请输入您的个人描述</textarea>
-                    </div>
-
-                    <input type="button" value="确认提交" >
-                </form>
-            </div>
-
-
-
-        </div>
-
-
-    </div>
-    <div class="footer">
-        <address>
-           版权所有 © <a href="mailto:code@hackweek.org">HackWeek技术组</a>.<br>
-        </address>
-    </div>
-</div>
-
-</body>
-</html>
+<!DOCTYPE html><html lang="zh-cn"><head>    <meta charset="utf-8">    <meta http-equiv="X-UA-Compatible" content="IE=edge">    <meta name="viewport" content="width=device-width, initial-scale=1">    <meta name="keywords" content="" >    <meta name="description" content="">    <title>HackWeek Boostrap学习</title>    <!-- 注意引入的方法以及href里面的路径，这个路径是相对于index.html的路径的。注意不同文件的路径是怎么添加的。 -->    <!-- 下面这段是引入bootstrap -->    <link href="components/bootstrap/css/bootstrap.min.css" rel="stylesheet">    <!-- 下面这段引入是让页面内容动态起来CSS3 Animate It -->    <link href="components/css3-animate-it/css/animations.css" rel="stylesheet">    <!-- 下面这段引入是优秀的图标字体Font awesome -->    <link href="components/font-awesome/css/font-awesome.min.css" rel="stylesheet">    <!-- 下面这段引入是CSS3 动画库 Animate.css -->    <link href="components/animate.min.css" rel="stylesheet">    <!-- 下面这段引入是CSS3悬停动效Hover.css-->    <link href="components/hover-min.css" rel="stylesheet">    <!-- 下面这段引入是自己写的css-->    <link href="css/style.css" rel="stylesheet">    <!-- 下面的两个js是针对IE浏览器兼容文件 -->    <!--[if lt IE 9]>    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>    <![endif]-->    <style type="text/css">        body{margin: 0 15px}        h1,.futitle{margin-left: 15px;padding-top: 25px}        .fontawesome,.animate,.animation{background-color:#d4d4d4;margin-top: 15px }        ul li{margin-left:25px}        .fa-6x{font-size:6em}        .fa-7x{font-size:7em}        .fa-8x{font-size:8em}        .fa-9x{font-size:9em}        .fa-10x{font-size:10em}        table,.animateBox,.span_fadeIn,.img_bounceInUp{margin:0 auto}        .span_fadeIn,.img_bounceInUp{display: block;text-align: center;font-size: 2em}    </style></head><body><nav class="navbar navbar-default" role="navigation">    <div class="navbar-header">        <a class="navbar-brand hvr-underline-from-center"><i class="fa fa-home"></i>&nbsp; Home</a>    </div>    <div class="nav navbar-nav navbar-right">        <ul class="nav navbar-nav">            <li ><a href="#fontawesome"><i class="fa fa-anchor" aria-hidden="true"></i>&nbsp;Fontauesome</a></li>            <li><a href="#animate"><i class="fa fa-asterisk" aria-hidden="true"></i>&nbsp;AnimateCSS</a></li>            <li><a href="#animation"><i class="fa fa-meh-o" aria-hidden="true"></i>&nbsp;Animation</a></li>        </ul>    </div></nav><div  class="animation" id="animation">    <h1>Animation</h1>    <div class='animatedParent'>        <img class='animated slideInLeft delay-200' src="img/1.png"></img>        <img class='animated slideInLeft delay-500' src="img/2.png"></img>        <img class='animated slideInLeft delay-600' src="img/3.png"></img>        <img class='animated slideInLeft delay-900' src="img/4.png"></img>        <img class='animated slideInLeft delay-1000' src="img/5.png"></img>    </div></div><div   class="fontawesome" id="fontawesome" >    <h1>Fontauesome</h1>    <div class="futitle">十个大小不同的font-awesome图标</div>    <table>        <tr>            <td><i class="fa fa-camera-retro fa-lg"></i> fa-lg</td>            <td><i class="fa fa-camera-retro fa-2x"></i> fa-2x</td>            <td><i class="fa fa-camera-retro fa-3x"></i> fa-3x</td>            <td><i class="fa fa-camera-retro fa-4x"></i> fa-4x</td>            <td><i class="fa fa-camera-retro fa-5x"></i> fa-5x</td>        </tr>        <tr>            <td><i class="fa fa-camera-retro fa-6x"></i> fa-6x</td>            <td><i class="fa fa-camera-retro fa-7x"></i> fa-7x</td>            <td><i class="fa fa-camera-retro fa-8x"></i> fa-8x</td>            <td><i class="fa fa-camera-retro fa-9x"></i> fa-9x</td>            <td><i class="fa fa-camera-retro fa-10x"></i> fa-10x</td>        </tr>    </table></div><div  class="animate"id="animate">    <h1>AnimateCSS</h1>    <div class="animateBox" >        <span class="animated infinite fadeIn span_fadeIn">看我，看我，快看我，我有fadeIn动效额</span>        <img class="animated infinite shake img_bounceInUp" src="img/car.png">    </div></div><!-- 在引入Bootstrap之前需要先引入jquery --><script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script><!-- 下面的js是Bootstrap所有js插件的打包 --><script src="components/bootstrap/js/bootstrap.min.js"></script><!-- 下面的js是让页面内容动态起来CSS3 Animate It所有js插件的打包 --><script src="components/css3-animate-it/js/css3-animate-it.js"></script></body></html>

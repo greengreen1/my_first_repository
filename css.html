@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--重点掌握margin+float的方式，来实现随心所欲的div+css方式布局，具体可参考 http://jo2.org/css-auto-adapt-width/ -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="" >
+    <meta name="description" content="">
+    <title>CSS基础知识</title>
+    <style type="text/css">
+        body {
+            font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+        }
+        .wrap{
+            margin: 0 ;
+        }
+        .header,.footer{
+            margin: 20px 0 ;
+            height:40px;
+            border:solid 1px #0000FF;
+            background-color: black;
+            color: white;
+            vertical-align: middle;
+            line-height: 40px;
+        }
+        .nav_a{text-align: center;margin-left: 10px}
+        #container{
+            overflow: hidden; *zoom: 1;
+        }
+        #left{
+            width: 100%;
+            margin-left: -410px;
+            float: left;
+
+        }
+        #left_content1,#left_content2,#left_content3,#left_content4{
+            padding: 10px;
+            margin-left: 410px;
+            background-color: #eee;
+            margin-bottom: 10px;
+        }
+        #right{
+            float: right;
+            width:400px;
+
+            background-color: #eee;
+        }
+        p{text-indent:2em;}
+        ul{list-style: none}
+        .img_ul{
+            width: auto;
+        }
+        .img_ul li,.nav_ul li{width:auto; height:auto; display:inline-block}
+        .nav_ul {margin: 0}
+        .nav_ul li a{margin-right: 10px}
+        table {
+            width: 100%;
+            border-collapse:collapse;
+
+        }
+        th{background-color: black;color:white;}
+        td{text-align: center}
+        #right_title{text-align: center}
+        .nav{float: right}
+
+         label{text-align: right; width: 150px;margin-right: 10px;display: inline-block}
+         input[type="text"]{text-align: left; width: 150px; vertical-align: middle; display: inline-block}
+        .hint_div{color: darkgray;padding-left: 160px}
+        textarea{vertical-align: top;font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;}
+        input[type="button"]{width: 300px;background-color:deepskyblue;margin:0 auto;height:30px;display: block}
+        address{text-align: center}
+
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="header">
+        <a class="nav_a" >导航</a>
+        <div class="nav">
+            <ul class="nav_ul">
+                <li><a>导航链接一</a></li>
+                <li><a>导航链接二</a></li>
+                <li><a>导航链接三</a></li>
+                <li><a>导航链接四</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+    <div id="container">
+        <div id="left">
+            <div id="left_content1">
+                <h1>文章一级标题</h1>
+                <h2>文章二级标题</h2>
+                Amy   <span>2017.3.11</span>
+                <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了
+                    <br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了
+                    <br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
+                    <a  href="http://ife.baidu.com">这里有一个链接链接到http://ife.baidu.com</a>
+                    这是一个很长很长的段落，这是一个很长很长的段落，<b>这里有个粗体字</b>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。
+                </p>
+                <img src="./img/css.jpg">
+                <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了
+                    <br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了
+                    <br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
+                    <a target="_blank" href="http://ife.baidu.com">这里有一个链接点击后新窗口链接到http://ife.baidu.com</a>
+                    这是一个很长很长的段落，这是一个很长很长的段落，<b>这里有个粗体字</b>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。
+                </p>
+            </div>
+            <div id="left_content2">
+                <h1>另一篇文章文章一级标题</h1>
+                <h2>文章二级标题</h2>
+                Amy   <span>2017.3.11</span>
+                <p>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了
+                    <br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了
+                    <br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
+                    <a  href="http://ife.baidu.com">这里有一个链接链接到http://ife.baidu.com</a>
+                    这是一个很长很长的段落，这是一个很长很长的段落，<b>这里有个粗体字</b>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落。
+                </p>
+                <img src="./img/css.jpg">
+                <ul class="project_ul">
+                    <li>列表项目一</li>
+                    <li>列表项目二</li>
+                    <li>列表项目三</li>
+                    <li>列表项目四</li>
+                </ul>
+            </div>
+            <div id="left_content3">
+                <h1>图片</h1>
+                <ul class="img_ul">
+                    <li><img src="./img/car.png"></li>
+                    <li><img src="./img/car.png"></li>
+                    <li><img src="./img/car.png"></li>
+                    <li><img src="./img/car.png"></li>
+                    <li><img src="./img/car.png"></li>
+                    <li><img src="./img/car.png"></li>
+                    <li><img src="./img/car.png"></li>
+                    <li><img src="./img/car.png"></li>
+                    <li><img src="./img/car.png"></li>
+                    <li><img src="./img/car.png"></li>
+                </ul>
+            </div>
+            <div id="left_content4">
+                <h1>最后一篇文章一级标题</h1>
+                <h2>文章二级标题</h2>
+                Amy   <span>2017.3.11</span>
+                <ol>
+                    <li><b>排名1</b></li>
+                    <li><b>排名2</b></li>
+                    <li><b>排名3</b></li>
+                </ol>
+                <div>
+                    <b>下面是一个表格，我这里给表格加了一个border="1"好让你们看出这是一个表格，你们不用写html时不需要加</b>
+                    <table border="1">
+                        <tr><th>表头</th><th>表头</th><th>表头</th></tr>
+                        <tr><td>表内容单元格</td><td>表内容单元格</td><td>表内容单元格</td></tr>
+                        <tr><td>表内容单元格</td><td>表内容单元格</td><td>表内容单元格</td></tr>
+                        <tr><td>表内容单元格</td><td>表内容单元格</td><td>表内容单元格</td></tr>
+                        <tr><td>表内容单元格</td><td>表内容单元格</td><td>表内容单元格</td></tr>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div id="right">
+            <div><h1 id="right_title">侧栏的标题</h1></div>
+            <div id="form_div">
+                <form class="form-box" >
+                    <div class="form-group">
+                        <label class="form-lable">请输入邮箱地址</label>
+                        <input class="form-input" type="text" value="这是一个文本输入框" >
+                    </div>
+                    <div class="hint_div">邮箱地址请按要求格式输入</div>
+                    <div class="form-group">
+                        <label class="form-lable">请输入密码</label>
+                        <input class="form-input" type="password">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-lable">请重复输入密码</label>
+                        <input class="form-input" type="password">
+                    </div>
+                    <div class="hint_div">密码为6-16位英文数字</div>
+                    <div class="=form-group">
+                        <label>性别</label>
+                        <input type="radio" name="sex" value="男" checked>男
+                        <input type="radio" name="sex" value="女">女
+                    </div>
+                    <div class="=form-group">
+                        <label>城市</label>
+                        <select>
+                            <option value="北京" >北京</option>
+                            <option value="上海" >上海</option>
+                            <option value="广州" >广州</option>
+                            <option value="深圳" >深圳</option>
+                        </select>
+                    </div>
+                    <div class="=form-group">
+                        <label>爱好</label>
+                        <input type="checkbox" name="hobby" value="运动">运动
+                        <input type="checkbox" name="hobby" value="艺术">艺术
+                        <input type="checkbox" name="hobby" value="科学">科学
+                    </div>
+                    <div class="=form-group">
+                        <label>个人描述</label>
+                        <textarea name="description" rows="10" cols="30">这是一个多行输入框，请输入您的个人描述</textarea>
+                    </div>
+
+                    <input type="button" value="确认提交" >
+                </form>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+    <div class="footer">
+        <address>
+           版权所有 © <a href="mailto:code@hackweek.org">HackWeek技术组</a>.<br>
+        </address>
+    </div>
+</div>
+
+</body>
+</html>
